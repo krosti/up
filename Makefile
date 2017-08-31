@@ -1,6 +1,15 @@
 
 GO ?= go
 
+# Build static site.
+site:
+	@static-docs \
+	  -in docs \
+		-out . \
+		-title Up \
+		-subtitle "Deploy serverless apps in seconds"
+.PHONY: site
+
 # Build all files.
 build:
 	@echo "==> Building"
