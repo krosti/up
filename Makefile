@@ -7,7 +7,8 @@ site:
 	  -in docs \
 		-out . \
 		-title Up \
-		-subtitle "Deploy serverless apps in seconds"
+		-subtitle "Deploy serverless apps in seconds" \
+		-segment ZFVGRrYQ0ZDLAHdPRyNJu9xkmtEtdPyD	
 .PHONY: site
 
 # Build all files.

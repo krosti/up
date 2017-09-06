@@ -4,6 +4,12 @@
     <meta charset="utf-8">
     <title>Up | Deploy serverless apps in seconds</title>
     <link rel="stylesheet" href="theme/apex/css/index.css">
+    <script>
+  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="4.0.0";
+  analytics.load("ZFVGRrYQ0ZDLAHdPRyNJu9xkmtEtdPyD");
+  analytics.page();
+  }}();
+</script>
   </head>
   <body>
     <div class="Wrapper">
@@ -768,16 +774,18 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 <li>When <code>app.py</code> is detected <code>python app.py</code> is used</li>
 </ul></li>
 <li><code>backoff</code> – Backoff configuration object described in &ldquo;Crash Recovery&rdquo;</li>
+<li><code>listen_timeout</code> – Timeout in seconds Up will wait for your app to boot and listen on <code>PORT</code> (Default <code>15</code>)</li>
 </ul>
 
 <pre><code class="language-json">{
   &quot;proxy&quot;: {
-    &quot;command&quot;: &quot;node app.js&quot;
+    &quot;command&quot;: &quot;node app.js&quot;,
+    &quot;listen_timeout&quot;: 30
   }
 }
 </code></pre>
 
-<h2>Crash Recovery</h2>
+<h3>Crash Recovery</h3>
 
 <p>Another benefit of using Up as a reverse proxy is performing crash recovery, restarting your server upon crashing and re-attempting the request before responding to the client with an error.</p>
 
@@ -1622,7 +1630,9 @@ Flags:
   <summary>How is this different than other serverless frameworks?</summary>
   <p>Most of the AWS Lambda based tools are function-oriented, while Up abstracts this away entirely. Up does not use framework &ldquo;shims&rdquo;, the servers that you run using Up are regular HTTP servers and require no code changes for Lambda compatibility.</p></p>
 
-<p><p>This keeps your apps and APIs portable, makes testing them locally easier, and prevents vendor lock-in. The Lambda support for Up is simply an implementation detail, you are not coupled to API Gateway or Lambda.</p>
+<p><p>Up keeps your apps and APIs portable, makes testing them locally easier, and prevents vendor lock-in. The Lambda support for Up is simply an implementation detail, you are not coupled to API Gateway or Lambda.</p></p>
+
+<p><p>If you&rsquo;re looking to manage function-level event processing pipelines, Apex or Serverless are likely better candidates, however if you&rsquo;re creating applications, apis, micro services, or websites, Up is built for you.</p>
 </details></p>
 
 <p><details>
