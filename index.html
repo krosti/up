@@ -2,6 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Up | Deploy serverless apps in seconds</title>
     <link rel="stylesheet" href="theme/apex/css/index.css">
     <script>
@@ -14,69 +16,71 @@
   <body>
     <div class="Wrapper">
       <div class="Container">
-        <div class="Sidebar">
-          <div class="Menu">
-            
-              <div class="item">
-                <a href="#introduction">Introduction</a>
-              </div>
-            
-              <div class="item">
-                <a href="#installation">Installation</a>
-              </div>
-            
-              <div class="item">
-                <a href="#aws_credentials">AWS Credentials</a>
-              </div>
-            
-              <div class="item">
-                <a href="#getting_started">Getting Started</a>
-              </div>
-            
-              <div class="item">
-                <a href="#configuration">Configuration</a>
-              </div>
-            
-              <div class="item">
-                <a href="#runtimes">Runtimes</a>
-              </div>
-            
-              <div class="item">
-                <a href="#commands">Commands</a>
-              </div>
-            
-              <div class="item">
-                <a href="#faq">FAQ</a>
-              </div>
-            
-              <div class="item">
-                <a href="#links">Links</a>
-              </div>
-            
+        <div class="Header">
+          <div class="Title center">
+            <span class="text">Up</span>
+            <span class="subtext">Deploy serverless apps in seconds</span>
           </div>
         </div>
 
-        <div class="Content">
-          <div class="Header">
-            <div class="Title center">
-              <span class="text">Up</span>
-              <span class="subtext">Deploy serverless apps in seconds</span>
+        <div class="Content-wrapper">
+          <div class="Sidebar">
+            <div class="Menu">
+              
+                <div class="item">
+                  <a href="#introduction">Introduction</a>
+                </div>
+              
+                <div class="item">
+                  <a href="#installation">Installation</a>
+                </div>
+              
+                <div class="item">
+                  <a href="#aws_credentials">AWS Credentials</a>
+                </div>
+              
+                <div class="item">
+                  <a href="#getting_started">Getting Started</a>
+                </div>
+              
+                <div class="item">
+                  <a href="#configuration">Configuration</a>
+                </div>
+              
+                <div class="item">
+                  <a href="#runtimes">Runtimes</a>
+                </div>
+              
+                <div class="item">
+                  <a href="#commands">Commands</a>
+                </div>
+              
+                <div class="item">
+                  <a href="#faq">FAQ</a>
+                </div>
+              
+                <div class="item">
+                  <a href="#links">Links</a>
+                </div>
+              
             </div>
           </div>
-          
-            <div class="Page" id="introduction">
-              <h1>Introduction</h1>
-              <p>Up deploys infinitely scalable serverless apps, APIs, and static websites in seconds, so you can get back to working on what makes your product unique.</p>
+
+          <div class="Content">
+            
+              <div class="Page" id="introduction">
+                <h1>Introduction</h1>
+                <p>Up deploys infinitely scalable serverless apps, APIs, and static websites in seconds, so you can get back to working on what makes your product unique.</p>
 
 <p>Up focuses on deploying &ldquo;vanilla&rdquo; HTTP servers so there&rsquo;s nothing new to learn, just develop with your favorite existing frameworks such as Express, Koa, Django, Golang net/http or others.</p>
 
 <p>Up currently supports Node.js, Golang, Python, Crystal, and static sites out of the box. Up is platform-agnostic, supporting AWS Lambda and API Gateway as the first targets. You can think of Up as self-hosted Heroku style user experience for a fraction of the price, with the security, flexibility, and scalability of AWS.</p>
 
-            </div>
-          
-            <div class="Page" id="installation">
-              <h1>Installation</h1>
-              <p>Up is distributed in a binary form and can be installed manually via the <a href="https://github.com/apex/up/releases">tarball releases</a> or one of the options below.</p>
+              </div>
+            
+              <div class="Page" id="installation">
+                <h1>Installation</h1>
+                <p>Up is distributed in a binary form and can be installed manually via the <a href="https://github.com/apex/up/releases">tarball releases</a> or one of the options below.</p>
 
 <p>The quickest way to get <code>up</code> is to run the following command, which installs to to <code>/usr/local/bin</code> by default.</p>
 
@@ -103,11 +107,11 @@
 <pre><code>$ sudo chown -R $(whoami) /usr/local/
 </code></pre>
 
-            </div>
-          
-            <div class="Page" id="aws_credentials">
-              <h1>AWS Credentials</h1>
-              <p>Before using Up you need to first provide your AWS account credentials so that resources can be created. There are a number of ways to do that, which are outlined here.</p>
+              </div>
+            
+              <div class="Page" id="aws_credentials">
+                <h1>AWS Credentials</h1>
+                <p>Before using Up you need to first provide your AWS account credentials so that resources can be created. There are a number of ways to do that, which are outlined here.</p>
 
 <h2>Via environment variables</h2>
 
@@ -236,11 +240,11 @@ aws_secret_access_key = xxxxxxxxxxxxxxxxxxxxxxxx
 
 <p>Note that this may change as features are added to Up, so you may have to adjust the policy.</p>
 
-            </div>
-          
-            <div class="Page" id="getting_started">
-              <h1>Getting Started</h1>
-              <p>The simplest Up application is a single file for the application itself, with zero dependencies.</p>
+              </div>
+            
+              <div class="Page" id="getting_started">
+                <h1>Getting Started</h1>
+                <p>The simplest Up application is a single file for the application itself, with zero dependencies.</p>
 
 <p>Up runs &ldquo;vanilla&rdquo; HTTP servers listening on the <code>PORT</code> environment variable, which is passed to your program by Up. For example create a new directory with the following <code>app.js</code> file:</p>
 
@@ -337,11 +341,11 @@ end
 server.listen
 </code></pre>
 
-            </div>
-          
-            <div class="Page" id="configuration">
-              <h1>Configuration</h1>
-              <p>Configuration for your app lives in the <code>up.json</code> within your project&rsquo;s directory. This section details each of the options available.</p>
+              </div>
+            
+              <div class="Page" id="configuration">
+                <h1>Configuration</h1>
+                <p>Configuration for your app lives in the <code>up.json</code> within your project&rsquo;s directory. This section details each of the options available.</p>
 
 <h2>Name</h2>
 
@@ -936,11 +940,11 @@ DEBU filtered node_modules/chalk/readme.md – 6136
 <pre><code>./src
 </code></pre>
 
-            </div>
-          
-            <div class="Page" id="runtimes">
-              <h1>Runtimes</h1>
-              <p>Up supports a number of interpreted languages, and virtually any language which can be compiled to a binary such as Golang. Up does its best to provide idiomatic and useful out-of-the-box experiences tailored to each language. Currently first-class support is provided for:</p>
+              </div>
+            
+              <div class="Page" id="runtimes">
+                <h1>Runtimes</h1>
+                <p>Up supports a number of interpreted languages, and virtually any language which can be compiled to a binary such as Golang. Up does its best to provide idiomatic and useful out-of-the-box experiences tailored to each language. Currently first-class support is provided for:</p>
 
 <ul>
 <li>Python</li>
@@ -1008,11 +1012,11 @@ DEBU filtered node_modules/chalk/readme.md – 6136
 
 <p>When an <code>index.html</code> file is detected the project is assumed to be static.</p>
 
-            </div>
-          
-            <div class="Page" id="commands">
-              <h1>Commands</h1>
-              <p>Up provides the <code>up</code> command-line program, used to deploy the app, and manage associated resources such as domains and SSL certificates, as well as operational tasks like viewing logs.</p>
+              </div>
+            
+              <div class="Page" id="commands">
+                <h1>Commands</h1>
+                <p>Up provides the <code>up</code> command-line program, used to deploy the app, and manage associated resources such as domains and SSL certificates, as well as operational tasks like viewing logs.</p>
 
 <p>To view details for a command at any time use <code>up help</code> or <code>up help &lt;command&gt;</code>.</p>
 
@@ -1612,11 +1616,11 @@ Flags:
 <pre><code>$ up build --size &gt; /dev/null
 </code></pre>
 
-            </div>
-          
-            <div class="Page" id="faq">
-              <h1>FAQ</h1>
-              <p><details>
+              </div>
+            
+              <div class="Page" id="faq">
+                <h1>FAQ</h1>
+                <p><details>
   <summary>Is this a hosted service?</summary>
   <p>There are currently no plans for a hosted version. Up lets you deploy applications to your own AWS account for isolation, security, and longevity, don&rsquo;t worry about a startup going out of business.</p>
 </details></p>
@@ -1673,11 +1677,11 @@ Flags:
   <p>Yes you can! Head over to the <a href="https://opencollective.com/apex-up">OpenCollective</a> page. Any donations are greatly appreciated and help me focus more on Up&rsquo;s implementation, documentation, and examples. If you&rsquo;re using the free OSS version for personal or commercial use please consider giving back, even a few bucks buys a coffee :).</p>
 </details></p>
 
-            </div>
-          
-            <div class="Page" id="links">
-              <h1>Links</h1>
-              <ul>
+              </div>
+            
+              <div class="Page" id="links">
+                <h1>Links</h1>
+                <ul>
 <li>Follow the progress on <a href="https://github.com/apex/up">GitHub repository</a></li>
 <li>Follow <a href="https://twitter.com/tjholowaychuk">@tjholowaychuk</a> on Twitter for updates</li>
 <li><a href="https://github.com/apex/up-examples">Example applications</a> for Up</li>
@@ -1686,12 +1690,13 @@ Flags:
 <li><a href="https://github.com/apex/up/wiki">Wiki</a> for article listings, database suggestions, etc</li>
 </ul>
 
-            </div>
-          
-          <div class="Footer"></div>
-          <script src="theme/apex/js/smoothscroll.js"></script>
-          <script src="theme/apex/js/index.js"></script>
-      </div>
+              </div>
+            
+            <div class="Footer"></div>
+            <script src="theme/apex/js/smoothscroll.js"></script>
+            <script src="theme/apex/js/index.js"></script>
+          </div>
+        </div>
     </div>
   </body>
 </html>

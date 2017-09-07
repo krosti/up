@@ -7,7 +7,6 @@
   --tracking-medium: 0.5rem;
   --tracking-large: 0.8rem;
 
-  /*--dark: #212529;*/
   --dark: #000;
   --blue: #33A9FF;
   --light-gray: #fafafa;
@@ -159,6 +158,18 @@ details > p {
 .Container {
   width: var(--width);
   display: flex;
+  flex-direction: column;
+}
+
+.Content-wrapper {
+  display: flex;
+}
+
+.Header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: var(--header-height);
 }
 
 .Sidebar {
@@ -173,7 +184,6 @@ details > p {
   position: -webkit-sticky;
   position: sticky;
   top: 50px;
-  margin-top: calc(var(--header-height) + 10px);
   color: var(--fg-dark);
 }
 
@@ -190,7 +200,6 @@ details > p {
 }
 
 .Menu > .item > a.active {
-  font-weight: 500;
   color: var(--fg-dark);
 }
 
@@ -217,19 +226,12 @@ details > p {
   transform: scaleX(1);
 }
 
-.Header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: var(--header-height);
-}
-
 .Page {
   margin-top: 100px;
   padding-top: 50px;
 }
 
-.Header + .Page {
+.Page:first-child {
   margin-top: 0;
   padding-top: 0;
 }
