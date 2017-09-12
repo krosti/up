@@ -4,11 +4,11 @@ GO ?= go
 # Build static site.
 site:
 	@static-docs \
-	  -in docs \
-		-out . \
-		-title Up \
-		-subtitle "Deploy serverless apps in seconds" \
-		-segment ZFVGRrYQ0ZDLAHdPRyNJu9xkmtEtdPyD	
+	  --in docs \
+		--out . \
+		--title Up \
+		--subtitle "Deploy serverless apps in seconds" \
+		--segment ZFVGRrYQ0ZDLAHdPRyNJu9xkmtEtdPyD	
 .PHONY: site
 
 # Build all files.

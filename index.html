@@ -56,6 +56,10 @@
                 </div>
               
                 <div class="item">
+                  <a href="#guides">Guides</a>
+                </div>
+              
+                <div class="item">
                   <a href="#faq">FAQ</a>
                 </div>
               
@@ -1187,160 +1191,6 @@ Args:
    [&lt;query&gt;]  Query pattern for filtering logs.
 </code></pre>
 
-<h3>Query Language</h3>
-
-<p>Up supports a comprehensive query language, allowing you to perform complex filters against structured data, supporting operators, equality, substring tests and so on.</p>
-
-<h4>AND Operator</h4>
-
-<p>The <code>and</code> operator is implied, and entirely optional to specify, since this is the common case.</p>
-
-<p>Suppose you have the following example query to show only production errors from a the specified IP address.</p>
-
-<pre><code>production error ip = &quot;207.194.32.30&quot;
-</code></pre>
-
-<p>The parser will inject <code>and</code>, effectively compiling to:</p>
-
-<pre><code>production and error and ip = &quot;207.194.38.50&quot;
-</code></pre>
-
-<h4>Or Operator</h4>
-
-<p>There is of course also an <code>or</code> operator, for example showing warnings or errors.</p>
-
-<pre><code>production (warn or error)
-</code></pre>
-
-<p>These may of course be nested as you require:</p>
-
-<pre><code>(production or staging) (warn or error) method = &quot;GET&quot;
-</code></pre>
-
-<h4>Equality Operators</h4>
-
-<p>The <code>=</code> and <code>!=</code> equality operators allow you to filter on the contents of a field.</p>
-
-<p>Here <code>=</code> is used to show only GET requests:</p>
-
-<pre><code>method = &quot;GET&quot;
-</code></pre>
-
-<p>Or for example <code>!=</code> may be used to show anything except GET:</p>
-
-<pre><code>method != &quot;GET&quot;
-</code></pre>
-
-<h4>Relational Operators</h4>
-
-<p>The <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>, and <code>&lt;=</code> relational operators are useful for comparing numeric values, for example response status codes:</p>
-
-<pre><code>status &gt;= 200 status &lt; 300
-</code></pre>
-
-<h4>Stages</h4>
-
-<p>Currently all development, staging, and production logs are all stored in the same location, however you may filter to find exactly what you need.</p>
-
-<p>The keywords <code>production</code>, <code>staging</code>, and <code>development</code> expand to:</p>
-
-<pre><code>stage = &quot;production&quot;
-</code></pre>
-
-<p>For example filtering on slow production responses:</p>
-
-<pre><code>production duration &gt;= 1s
-</code></pre>
-
-<p>Is the same as:</p>
-
-<pre><code>stage = &quot;production&quot; duration &gt;= 1s
-</code></pre>
-
-<h4>Severity Levels</h4>
-
-<p>Up provides request level logging with severity levels applied automatically, for example a 5xx response is an ERROR level, while 4xx is a WARN, and 3xx or 2xx are the INFO level.</p>
-
-<p>This means that instead of using the following for showing production errors:</p>
-
-<pre><code>production status &gt;= 500
-</code></pre>
-
-<p>You may use:</p>
-
-<pre><code>production error
-</code></pre>
-
-<h4>In Operator</h4>
-
-<p>The <code>in</code> operator checks for the presence of a field within the set provided. For example showing only POST, PUT and PATCH requests:</p>
-
-<pre><code>method in (&quot;POST&quot;, &quot;PUT&quot;, &quot;PATCH&quot;)
-</code></pre>
-
-<h3>Not Operator</h3>
-
-<p>The <code>not</code> operator is a low-precedence negation operator, for example excluding requests with the method POST, PUT, or PATCH:</p>
-
-<pre><code>not method in (&quot;POST&quot;, &quot;PUT&quot;, &quot;PATCH&quot;)
-</code></pre>
-
-<p>Since it is the lowest precedence operator, the following will show messages that are not &ldquo;user login&rdquo; or &ldquo;user logout&rdquo;:</p>
-
-<pre><code>not message = &quot;user login&quot; or message = &quot;user logout&quot;
-</code></pre>
-
-<p>Effectively compiling to:</p>
-
-<pre><code>!(message = &quot;user login&quot; or message = &quot;user logout&quot;)
-</code></pre>
-
-<h4>Units</h4>
-
-<p>The log grammar supports units for bytes and durations, for example showing responses larger than 56kb:</p>
-
-<pre><code>size &gt; 56kb
-</code></pre>
-
-<p>Or showing responses longer than 1500ms:</p>
-
-<pre><code>duration &gt; 1.5s
-</code></pre>
-
-<p>Byte units are:</p>
-
-<ul>
-<li><code>b</code> bytes (<code>123b</code> or <code>123</code> are equivalent)</li>
-<li><code>kb</code> bytes (<code>5kb</code>, <code>128kb</code>)</li>
-<li><code>mb</code> bytes (<code>5mb</code>, <code>15.5mb</code>)</li>
-</ul>
-
-<p>Duration units are:</p>
-
-<ul>
-<li><code>ms</code> milliseconds (<code>100ms</code> or <code>100</code> are equivalent)</li>
-<li><code>s</code> seconds (<code>1.5s</code>, <code>5s</code>)</li>
-</ul>
-
-<h4>Substring Matches</h4>
-
-<p>When filtering on strings, such as the log message, you may use the <code>*</code> character for substring matches.</p>
-
-<p>For example if you want to show logs with a remote ip prefix of <code>207.</code>:</p>
-
-<pre><code>ip = &quot;207.*&quot;
-</code></pre>
-
-<p>Or a message containing the word &ldquo;login&rdquo;:</p>
-
-<pre><code>message = &quot;*login*&quot;
-</code></pre>
-
-<p>There is also a special keyword for this case:</p>
-
-<pre><code>message contains &quot;login&quot;
-</code></pre>
-
 <h3>JSON Output</h3>
 
 <p>When stdout is not a terminal Up will output the logs as JSON, which can be useful for further processing with tools such as <a href="https://stedolan.github.io/jq/">jq</a>.</p>
@@ -1626,6 +1476,242 @@ Flags:
 <p>Build archive and list size without creating out.zip.</p>
 
 <pre><code>$ up build --size &gt; /dev/null
+</code></pre>
+
+              </div>
+            
+              <div class="Page" id="guides">
+                <h1>Guides</h1>
+                <h2>Logging</h2>
+
+<p>This description describes how you can log from you application in a way that Up will recognize. In the future Up will support forwarding your logs to services such as Loggly, Papertrail or ELK.</p>
+
+<h3>Plain Text</h3>
+
+<p>The first option is plain-text logs to stdout or stderr. Currently writes to stderr are considered ERROR-level logs, and stdout becomes INFO.</p>
+
+<p>Writing plain-text logs is simple, for example with Node.js:</p>
+
+<pre><code class="language-js">console.log('User signed in')
+console.error('Failed to sign in: %s', err)
+</code></pre>
+
+<p>Would be collected as:</p>
+
+<pre><code> INFO: User signed in
+ERROR: Failed to sign in: something broke
+</code></pre>
+
+<p>Multi-line indented logs are also supported, and are treated as a single message. For example:</p>
+
+<pre><code class="language-js">console.log('User signed in')
+console.log('  name: %s', user.name)
+console.log('  email: %s', user.email)
+</code></pre>
+
+<p>Would be collected as the single entry:</p>
+
+<pre><code>INFO: User signed in
+  name: tj
+  email: tj@apex.sh
+</code></pre>
+
+<p>This feature is especially useful for stack traces.</p>
+
+<h3>JSON</h3>
+
+<p>The second option is structured logging with JSON events, which is preferred as it allows you to query against specific fields and treat logs like events.</p>
+
+<p>JSON logs require a <code>level</code> and <code>message</code> field:</p>
+
+<pre><code class="language-js">console.log(`{ &quot;level&quot;: &quot;info&quot;, &quot;message&quot;: &quot;User signin&quot; }`)
+</code></pre>
+
+<p>Would be collected as:</p>
+
+<pre><code>INFO: User login
+</code></pre>
+
+<p>The <code>message</code> field should typically contain no dynamic content, such as user names or emails, these can be provided as fields:</p>
+
+<pre><code class="language-js">console.log(`{ &quot;level&quot;: &quot;info&quot;, &quot;message&quot;: &quot;User login&quot;, &quot;fields&quot;: { &quot;name&quot;: &quot;Tobi&quot;, &quot;email&quot;: &quot;tobi@apex.sh&quot; } }`)
+</code></pre>
+
+<p>Would be collected as:</p>
+
+<pre><code>INFO: User login name=Tobi email=tobi@apex.sh
+</code></pre>
+
+<p>Allowing you to perform queries such as:</p>
+
+<pre><code>$ up logs 'message = &quot;User login&quot; name = &quot;Tobi&quot;'
+</code></pre>
+
+<p>Or:</p>
+
+<pre><code>$ up logs 'name = &quot;Tobi&quot; or email = &quot;tobi@*&quot;'
+</code></pre>
+
+<p>Here&rsquo;s a simple JavaScript logger for reference, all you need to do is output some JSON to stdout and Up will handle the rest!</p>
+
+<pre><code class="language-js">function log(level, message, fields = {}) {
+  const entry = { level, message, fields }
+  console.log(JSON.stringify(entry))
+}
+</code></pre>
+
+<h2>Log Query Language</h2>
+
+<p>Up supports a comprehensive query language, allowing you to perform complex filters against structured data, supporting operators, equality, substring tests and so on. This section details the options available when querying.</p>
+
+<h3>AND Operator</h3>
+
+<p>The <code>and</code> operator is implied, and entirely optional to specify, since this is the common case.</p>
+
+<p>Suppose you have the following example query to show only production errors from a the specified IP address.</p>
+
+<pre><code>production error ip = &quot;207.194.32.30&quot;
+</code></pre>
+
+<p>The parser will inject <code>and</code>, effectively compiling to:</p>
+
+<pre><code>production and error and ip = &quot;207.194.38.50&quot;
+</code></pre>
+
+<h3>Or Operator</h3>
+
+<p>There is of course also an <code>or</code> operator, for example showing warnings or errors.</p>
+
+<pre><code>production (warn or error)
+</code></pre>
+
+<p>These may of course be nested as you require:</p>
+
+<pre><code>(production or staging) (warn or error) method = &quot;GET&quot;
+</code></pre>
+
+<h3>Equality Operators</h3>
+
+<p>The <code>=</code> and <code>!=</code> equality operators allow you to filter on the contents of a field.</p>
+
+<p>Here <code>=</code> is used to show only GET requests:</p>
+
+<pre><code>method = &quot;GET&quot;
+</code></pre>
+
+<p>Or for example <code>!=</code> may be used to show anything except GET:</p>
+
+<pre><code>method != &quot;GET&quot;
+</code></pre>
+
+<h3>Relational Operators</h3>
+
+<p>The <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>, and <code>&lt;=</code> relational operators are useful for comparing numeric values, for example response status codes:</p>
+
+<pre><code>status &gt;= 200 status &lt; 300
+</code></pre>
+
+<h3>Stages</h3>
+
+<p>Currently all development, staging, and production logs are all stored in the same location, however you may filter to find exactly what you need.</p>
+
+<p>The keywords <code>production</code>, <code>staging</code>, and <code>development</code> expand to:</p>
+
+<pre><code>stage = &quot;production&quot;
+</code></pre>
+
+<p>For example filtering on slow production responses:</p>
+
+<pre><code>production duration &gt;= 1s
+</code></pre>
+
+<p>Is the same as:</p>
+
+<pre><code>stage = &quot;production&quot; duration &gt;= 1s
+</code></pre>
+
+<h3>Severity Levels</h3>
+
+<p>Up provides request level logging with severity levels applied automatically, for example a 5xx response is an ERROR level, while 4xx is a WARN, and 3xx or 2xx are the INFO level.</p>
+
+<p>This means that instead of using the following for showing production errors:</p>
+
+<pre><code>production status &gt;= 500
+</code></pre>
+
+<p>You may use:</p>
+
+<pre><code>production error
+</code></pre>
+
+<h3>In Operator</h3>
+
+<p>The <code>in</code> operator checks for the presence of a field within the set provided. For example showing only POST, PUT and PATCH requests:</p>
+
+<pre><code>method in (&quot;POST&quot;, &quot;PUT&quot;, &quot;PATCH&quot;)
+</code></pre>
+
+<h3>Not Operator</h3>
+
+<p>The <code>not</code> operator is a low-precedence negation operator, for example excluding requests with the method POST, PUT, or PATCH:</p>
+
+<pre><code>not method in (&quot;POST&quot;, &quot;PUT&quot;, &quot;PATCH&quot;)
+</code></pre>
+
+<p>Since it is the lowest precedence operator, the following will show messages that are not &ldquo;user login&rdquo; or &ldquo;user logout&rdquo;:</p>
+
+<pre><code>not message = &quot;user login&quot; or message = &quot;user logout&quot;
+</code></pre>
+
+<p>Effectively compiling to:</p>
+
+<pre><code>!(message = &quot;user login&quot; or message = &quot;user logout&quot;)
+</code></pre>
+
+<h3>Units</h3>
+
+<p>The log grammar supports units for bytes and durations, for example showing responses larger than 56kb:</p>
+
+<pre><code>size &gt; 56kb
+</code></pre>
+
+<p>Or showing responses longer than 1500ms:</p>
+
+<pre><code>duration &gt; 1.5s
+</code></pre>
+
+<p>Byte units are:</p>
+
+<ul>
+<li><code>b</code> bytes (<code>123b</code> or <code>123</code> are equivalent)</li>
+<li><code>kb</code> bytes (<code>5kb</code>, <code>128kb</code>)</li>
+<li><code>mb</code> bytes (<code>5mb</code>, <code>15.5mb</code>)</li>
+</ul>
+
+<p>Duration units are:</p>
+
+<ul>
+<li><code>ms</code> milliseconds (<code>100ms</code> or <code>100</code> are equivalent)</li>
+<li><code>s</code> seconds (<code>1.5s</code>, <code>5s</code>)</li>
+</ul>
+
+<h3>Substring Matches</h3>
+
+<p>When filtering on strings, such as the log message, you may use the <code>*</code> character for substring matches.</p>
+
+<p>For example if you want to show logs with a remote ip prefix of <code>207.</code>:</p>
+
+<pre><code>ip = &quot;207.*&quot;
+</code></pre>
+
+<p>Or a message containing the word &ldquo;login&rdquo;:</p>
+
+<pre><code>message = &quot;*login*&quot;
+</code></pre>
+
+<p>There is also a special keyword for this case:</p>
+
+<pre><code>message contains &quot;login&quot;
 </code></pre>
 
               </div>
