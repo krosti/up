@@ -76,7 +76,7 @@
                 <h1>Introduction</h1>
                 <p>Up deploys infinitely scalable serverless apps, APIs, and static websites in seconds, so you can get back to working on what makes your product unique.</p>
 
-<p>Up focuses on deploying &ldquo;vanilla&rdquo; HTTP servers so there&rsquo;s nothing new to learn, just develop with your favorite existing frameworks such as Express, Koa, Django, Golang net/http or others.</p>
+<p>Up focuses on deploying “vanilla” HTTP servers so there’s nothing new to learn, just develop with your favorite existing frameworks such as Express, Koa, Django, Golang net/http or others.</p>
 
 <p>Up currently supports Node.js, Golang, Python, Crystal, and static sites out of the box. Up is platform-agnostic, supporting AWS Lambda and API Gateway as the first targets. You can think of Up as self-hosted Heroku style user experience for a fraction of the price, with the security, flexibility, and scalability of AWS.</p>
 
@@ -91,7 +91,7 @@
 <pre><code>$ curl -sfL https://raw.githubusercontent.com/apex/up/master/install.sh | sh
 </code></pre>
 
-<p>NPM&rsquo;s <code>up</code> package runs the same script as above.</p>
+<p>NPM’s <code>up</code> package runs the same script as above.</p>
 
 <pre><code>$ npm i -g up
 </code></pre>
@@ -117,7 +117,7 @@
                 <h1>AWS Credentials</h1>
                 <p>Before using Up you need to first provide your AWS account credentials so that resources can be created. There are a number of ways to do that, which are outlined here.</p>
 
-<h2>Via environment variables</h2>
+<h2 id="via_environment_variables">Via environment variables</h2>
 
 <p>Using environment variables only, you may specify the following:</p>
 
@@ -128,121 +128,121 @@
 </ul>
 
 <p>If you have multiple AWS projects you may want to consider using a tool such as <a href="http://direnv.net/">direnv</a> to localize and automatically set the variables when
-you&rsquo;re working on a project.</p>
+you’re working on a project.</p>
 
-<h2>Via ~/.aws files</h2>
+<h2 id="via_aws_files">Via ~/.aws files</h2>
 
 <p>Using the <code>~/.aws/credentials</code> file to store credentials, allowing you to specify <code>AWS_PROFILE</code> so Up knows which project to reference. To read more on configuring these files view <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html">Configuring the AWS CLI</a>.</p>
 
-<p>Here&rsquo;s an example of <code>~/.aws/credentials</code>, where <code>export AWS_PROFILE=myapp</code> would activate these settings.</p>
+<p>Here’s an example of <code>~/.aws/credentials</code>, where <code>export AWS_PROFILE=myapp</code> would activate these settings.</p>
 
 <pre><code>[myapp]
 aws_access_key_id = xxxxxxxx
 aws_secret_access_key = xxxxxxxxxxxxxxxxxxxxxxxx
 </code></pre>
 
-<h2>Via project configuration</h2>
+<h2 id="via_project_configuration">Via project configuration</h2>
 
 <p>You may store the profile name in the <code>up.json</code> file itself as shown in the following snippet. This is typically ideal since it ensures that you do not accidentally have a different environment set.</p>
 
 <pre><code class="language-json">{
-  &quot;profile&quot;: &quot;myapp&quot;
+  &#34;profile&#34;: &#34;myapp&#34;
 }
 </code></pre>
 
-<h2>IAM Policy for Up CLI</h2>
+<h2 id="iam_policy_for_up_cli">IAM Policy for Up CLI</h2>
 
 <p>Below is a policy for <a href="https://aws.amazon.com/iam/">AWS Identity and Access Management</a> which provides Up access to manage your resources.</p>
 
 <pre><code class="language-json">{
-  &quot;Version&quot;: &quot;2012-10-17&quot;,
-  &quot;Statement&quot;: [
+  &#34;Version&#34;: &#34;2012-10-17&#34;,
+  &#34;Statement&#34;: [
     {
-      &quot;Action&quot;: [
-        &quot;route53:*&quot;,
-        &quot;route53domains:*&quot;
+      &#34;Action&#34;: [
+        &#34;route53:*&#34;,
+        &#34;route53domains:*&#34;
       ],
-      &quot;Effect&quot;: &quot;Allow&quot;,
-      &quot;Resource&quot;: &quot;*&quot;
+      &#34;Effect&#34;: &#34;Allow&#34;,
+      &#34;Resource&#34;: &#34;*&#34;
     },
     {
-      &quot;Action&quot;: [
-        &quot;acm:*&quot;
+      &#34;Action&#34;: [
+        &#34;acm:*&#34;
       ],
-      &quot;Effect&quot;: &quot;Allow&quot;,
-      &quot;Resource&quot;: &quot;*&quot;
+      &#34;Effect&#34;: &#34;Allow&#34;,
+      &#34;Resource&#34;: &#34;*&#34;
     },
     {
-      &quot;Action&quot;: [
-        &quot;cloudfront:*&quot;
+      &#34;Action&#34;: [
+        &#34;cloudfront:*&#34;
       ],
-      &quot;Effect&quot;: &quot;Allow&quot;,
-      &quot;Resource&quot;: &quot;*&quot;
+      &#34;Effect&#34;: &#34;Allow&#34;,
+      &#34;Resource&#34;: &#34;*&#34;
     },
     {
-      &quot;Action&quot;: [
-        &quot;cloudformation:Create*&quot;,
-        &quot;cloudformation:Update*&quot;,
-        &quot;cloudformation:Delete*&quot;,
-        &quot;cloudformation:Describe*&quot;,
-        &quot;cloudformation:ExecuteChangeSet&quot;
+      &#34;Action&#34;: [
+        &#34;cloudformation:Create*&#34;,
+        &#34;cloudformation:Update*&#34;,
+        &#34;cloudformation:Delete*&#34;,
+        &#34;cloudformation:Describe*&#34;,
+        &#34;cloudformation:ExecuteChangeSet&#34;
       ],
-      &quot;Effect&quot;: &quot;Allow&quot;,
-      &quot;Resource&quot;: &quot;*&quot;
+      &#34;Effect&#34;: &#34;Allow&#34;,
+      &#34;Resource&#34;: &#34;*&#34;
     },
     {
-      &quot;Action&quot;: [
-        &quot;iam:AttachRolePolicy&quot;,
-        &quot;iam:CreatePolicy&quot;,
-        &quot;iam:CreateRole&quot;,
-        &quot;iam:DeleteRole&quot;,
-        &quot;iam:DeleteRolePolicy&quot;,
-        &quot;iam:GetRole&quot;,
-        &quot;iam:PassRole&quot;,
-        &quot;iam:PutRolePolicy&quot;
+      &#34;Action&#34;: [
+        &#34;iam:AttachRolePolicy&#34;,
+        &#34;iam:CreatePolicy&#34;,
+        &#34;iam:CreateRole&#34;,
+        &#34;iam:DeleteRole&#34;,
+        &#34;iam:DeleteRolePolicy&#34;,
+        &#34;iam:GetRole&#34;,
+        &#34;iam:PassRole&#34;,
+        &#34;iam:PutRolePolicy&#34;
       ],
-      &quot;Effect&quot;: &quot;Allow&quot;,
-      &quot;Resource&quot;: &quot;*&quot;
+      &#34;Effect&#34;: &#34;Allow&#34;,
+      &#34;Resource&#34;: &#34;*&#34;
     },
     {
-      &quot;Action&quot;: [
-        &quot;lambda:Create*&quot;,
-        &quot;lambda:Delete*&quot;,
-        &quot;lambda:Get*&quot;,
-        &quot;lambda:List*&quot;,
-        &quot;lambda:Update*&quot;,
-        &quot;lambda:AddPermission&quot;,
-        &quot;lambda:RemovePermission&quot;,
-        &quot;lambda:InvokeFunction&quot;
+      &#34;Action&#34;: [
+        &#34;lambda:Create*&#34;,
+        &#34;lambda:Delete*&#34;,
+        &#34;lambda:Get*&#34;,
+        &#34;lambda:List*&#34;,
+        &#34;lambda:Update*&#34;,
+        &#34;lambda:AddPermission&#34;,
+        &#34;lambda:RemovePermission&#34;,
+        &#34;lambda:InvokeFunction&#34;
       ],
-      &quot;Effect&quot;: &quot;Allow&quot;,
-      &quot;Resource&quot;: &quot;*&quot;
+      &#34;Effect&#34;: &#34;Allow&#34;,
+      &#34;Resource&#34;: &#34;*&#34;
     },
     {
-      &quot;Action&quot;: [
-        &quot;logs:Create*&quot;,
-        &quot;logs:Put*&quot;,
-        &quot;logs:Test*&quot;,
-        &quot;logs:Describe*&quot;,
-        &quot;logs:FilterLogEvents&quot;
+      &#34;Action&#34;: [
+        &#34;logs:Create*&#34;,
+        &#34;logs:Put*&#34;,
+        &#34;logs:Test*&#34;,
+        &#34;logs:Describe*&#34;,
+        &#34;logs:FilterLogEvents&#34;
       ],
-      &quot;Effect&quot;: &quot;Allow&quot;,
-      &quot;Resource&quot;: &quot;*&quot;
+      &#34;Effect&#34;: &#34;Allow&#34;,
+      &#34;Resource&#34;: &#34;*&#34;
     },
     {
-      &quot;Effect&quot;: &quot;Allow&quot;,
-      &quot;Action&quot;: [
-        &quot;cloudwatch:Get*&quot;
+      &#34;Effect&#34;: &#34;Allow&#34;,
+      &#34;Action&#34;: [
+        &#34;cloudwatch:Get*&#34;
       ],
-      &quot;Resource&quot;: &quot;*&quot;
+      &#34;Resource&#34;: &#34;*&#34;
     },
     {
-      &quot;Effect&quot;: &quot;Allow&quot;,
-      &quot;Action&quot;: [
-        &quot;apigateway:*&quot;
+      &#34;Effect&#34;: &#34;Allow&#34;,
+      &#34;Action&#34;: [
+        &#34;apigateway:*&#34;
       ],
-      &quot;Resource&quot;: [
-        &quot;arn:aws:apigateway:*::/*&quot;
+      &#34;Resource&#34;: [
+        &#34;arn:aws:apigateway:*::/*&#34;
       ]
     }
   ]
@@ -257,17 +257,17 @@ aws_secret_access_key = xxxxxxxxxxxxxxxxxxxxxxxx
                 <h1>Getting Started</h1>
                 <p>The simplest Up application is a single file for the application itself, with zero dependencies.</p>
 
-<p>Up runs &ldquo;vanilla&rdquo; HTTP servers listening on the <code>PORT</code> environment variable, which is passed to your program by Up. For example create a new directory with the following <code>app.js</code> file:</p>
+<p>Up runs “vanilla” HTTP servers listening on the <code>PORT</code> environment variable, which is passed to your program by Up. For example create a new directory with the following <code>app.js</code> file:</p>
 
-<pre><code class="language-js">const http = require('http')
+<pre><code class="language-js">const http = require(&#39;http&#39;)
 const { PORT = 3000 } = process.env
 
 http.createServer((req, res) =&gt; {
-  res.end('Hello World from Node.js\n')
+  res.end(&#39;Hello World from Node.js\n&#39;)
 }).listen(PORT)
 </code></pre>
 
-<p>Next you&rsquo;ll need to let Up know which profile in <code>~/.aws/credentials</code> to use. Note however that instead of assigning <code>AWS_PROFILE</code> you may use the <code>&quot;profile&quot;: &quot;NAME&quot;</code> option in <code>up.json</code>.</p>
+<p>Next you’ll need to let Up know which profile in <code>~/.aws/credentials</code> to use. Note however that instead of assigning <code>AWS_PROFILE</code> you may use the <code>&#34;profile&#34;: &#34;NAME&#34;</code> option in <code>up.json</code>.</p>
 
 <pre><code>$ export AWS_PROFILE=myapp
 </code></pre>
@@ -292,12 +292,12 @@ http.createServer((req, res) =&gt; {
 <pre><code>$ curl `up url`
 </code></pre>
 
-<p>That&rsquo;s it! You&rsquo;ve deployed a basic Up application. Note that the first deploy may take a minute to set up the resources required. To delete it and its resources, use the following command:</p>
+<p>That’s it! You’ve deployed a basic Up application. Note that the first deploy may take a minute to set up the resources required. To delete it and its resources, use the following command:</p>
 
 <pre><code>$ up stack delete
 </code></pre>
 
-<p>If you&rsquo;re not a Node.js developer here are some examples in additional languages.</p>
+<p>If you’re not a Node.js developer here are some examples in additional languages.</p>
 
 <p>For Python create <code>app.py</code>:</p>
 
@@ -307,12 +307,12 @@ import os
 class myHandler(BaseHTTPRequestHandler):
   def do_GET(self):
   self.send_response(200)
-  self.send_header('Content-type','text/html')
+  self.send_header(&#39;Content-type&#39;,&#39;text/html&#39;)
   self.end_headers()
-  self.wfile.write(&quot;Hello World from Python\n&quot;)
+  self.wfile.write(&#34;Hello World from Python\n&#34;)
   return
 
-server = HTTPServer(('', int(os.environ['PORT'])), myHandler)
+server = HTTPServer((&#39;&#39;, int(os.environ[&#39;PORT&#39;])), myHandler)
 server.serve_forever()
 </code></pre>
 
@@ -321,32 +321,32 @@ server.serve_forever()
 <pre><code class="language-go">package main
 
 import (
-  &quot;os&quot;
-  &quot;fmt&quot;
-  &quot;log&quot;
-  &quot;net/http&quot;
+  &#34;os&#34;
+  &#34;fmt&#34;
+  &#34;log&#34;
+  &#34;net/http&#34;
 )
 
 func main() {
-  addr := &quot;:&quot;+os.Getenv(&quot;PORT&quot;)
-  http.HandleFunc(&quot;/&quot;, hello)
+  addr := &#34;:&#34;+os.Getenv(&#34;PORT&#34;)
+  http.HandleFunc(&#34;/&#34;, hello)
   log.Fatal(http.ListenAndServe(addr, nil))
 }
 
 func hello(w http.ResponseWriter, r *http.Request) {
-  fmt.Fprintln(w, &quot;Hello World from Go&quot;)
+  fmt.Fprintln(w, &#34;Hello World from Go&#34;)
 }
 </code></pre>
 
 <p>Finally for Crystal create <code>main.cr</code>:</p>
 
-<pre><code class="language-ruby">require &quot;http/server&quot;
+<pre><code class="language-ruby">require &#34;http/server&#34;
 
-port = ENV[&quot;PORT&quot;].to_i
+port = ENV[&#34;PORT&#34;].to_i
 
 server = HTTP::Server.new(port) do |ctx|
-  ctx.response.content_type = &quot;text/plain&quot;
-  ctx.response.print &quot;Hello world from Crystal&quot;
+  ctx.response.content_type = &#34;text/plain&#34;
+  ctx.response.print &#34;Hello world from Crystal&#34;
 end
 
 server.listen
@@ -356,62 +356,62 @@ server.listen
             
               <div class="Page" id="configuration">
                 <h1>Configuration</h1>
-                <p>Configuration for your app lives in the <code>up.json</code> within your project&rsquo;s directory. This section details each of the options available.</p>
+                <p>Configuration for your app lives in the <code>up.json</code> within your project’s directory. This section details each of the options available.</p>
 
-<h2>Name</h2>
+<h2 id="name">Name</h2>
 
 <p>The name of the application, which is used to name resources such as the Lambda function or API Gateway. By default this is the directory name.</p>
 
 <pre><code class="language-json">{
-  &quot;name&quot;: &quot;api&quot;
+  &#34;name&#34;: &#34;api&#34;
 }
 </code></pre>
 
-<h2>Profile</h2>
+<h2 id="profile">Profile</h2>
 
 <p>The <code>profile</code> property is equivalent to setting <code>AWS_PROFILE</code> for referencing AWS credentials in the <code>~/.aws</code> directory. Use of this property is preferred it prevents accidents with environment variables.</p>
 
 <pre><code class="language-json">{
-  &quot;profile&quot;: &quot;someapp&quot;
+  &#34;profile&#34;: &#34;someapp&#34;
 }
 </code></pre>
 
-<h2>Regions</h2>
+<h2 id="regions">Regions</h2>
 
-<p>You may specify one or more target regions for deployment using the <code>regions</code> array. Glob style patterns may be used to match region ids. By default &ldquo;us-west-2&rdquo; is used unless the <code>AWS_REGION</code> environment variable is defined.</p>
+<p>You may specify one or more target regions for deployment using the <code>regions</code> array. Glob style patterns may be used to match region ids. By default “us-west-2” is used unless the <code>AWS_REGION</code> environment variable is defined.</p>
 
 <p>A single region:</p>
 
 <pre><code class="language-json">{
-  &quot;regions&quot;: [&quot;us-west-2&quot;]
+  &#34;regions&#34;: [&#34;us-west-2&#34;]
 }
 </code></pre>
 
 <p>Several regions:</p>
 
 <pre><code class="language-json">{
-  &quot;regions&quot;: [&quot;us-west-2&quot;, &quot;us-east-1&quot;, &quot;ca-central-1&quot;]
+  &#34;regions&#34;: [&#34;us-west-2&#34;, &#34;us-east-1&#34;, &#34;ca-central-1&#34;]
 }
 </code></pre>
 
 <p>USA and Canada only:</p>
 
 <pre><code class="language-json">{
-  &quot;regions&quot;: [&quot;us-*&quot;, &quot;ca-*&quot;]
+  &#34;regions&#34;: [&#34;us-*&#34;, &#34;ca-*&#34;]
 }
 </code></pre>
 
 <p>Western USA only:</p>
 
 <pre><code class="language-json">{
-  &quot;regions&quot;: [&quot;us-west-*&quot;]
+  &#34;regions&#34;: [&#34;us-west-*&#34;]
 }
 </code></pre>
 
 <p>All regions like a boss:</p>
 
 <pre><code class="language-json">{
-  &quot;regions&quot;: [&quot;*&quot;]
+  &#34;regions&#34;: [&#34;*&#34;]
 }
 </code></pre>
 
@@ -434,9 +434,9 @@ server.listen
 <li><strong>sa-east-1</strong> – South America (São Paulo)</li>
 </ul>
 
-<p><strong>WARNING</strong>: multi-region support won&rsquo;t be complete until <a href="https://github.com/apex/up/issues/134">https://github.com/apex/up/issues/134</a> is closed.</p>
+<p><strong>WARNING</strong>: multi-region support won’t be complete until <a href="https://github.com/apex/up/issues/134">https://github.com/apex/up/issues/134</a> is closed.</p>
 
-<h2>Lambda Settings</h2>
+<h2 id="lambda_settings">Lambda Settings</h2>
 
 <p>The following Lambda-specific settings are available:</p>
 
@@ -449,110 +449,110 @@ server.listen
 <p>For example:</p>
 
 <pre><code class="language-json">{
-  &quot;name&quot;: &quot;api&quot;,
-  &quot;lambda&quot;: {
-    &quot;memory&quot;: 512,
-    &quot;timeout&quot;: 2
+  &#34;name&#34;: &#34;api&#34;,
+  &#34;lambda&#34;: {
+    &#34;memory&#34;: 512,
+    &#34;timeout&#34;: 2
   }
 }
 </code></pre>
 
 <p>View the <a href="https://aws.amazon.com/lambda/pricing/">Lambda Pricing</a> page for more information regarding the <code>memory</code> setting.</p>
 
-<h2>Hook Scripts</h2>
+<h2 id="hook_scripts">Hook Scripts</h2>
 
-<p>Up provides &ldquo;hooks&rdquo; which are commands invoked at certain points within the the deployment workflow for automating builds, linting and so on. The following hooks are available:</p>
+<p>Up provides “hooks” which are commands invoked at certain points within the the deployment workflow for automating builds, linting and so on. The following hooks are available:</p>
 
 <ul>
 <li><code>build</code> – Run on deploy, before building the zip file</li>
 <li><code>clean</code> – Run after a build to clean up artifacts</li>
 </ul>
 
-<p>Here&rsquo;s an example using Browserify to bundle a Node application. Use the <code>-v</code> verbose log flag to see how long each hook takes.</p>
+<p>Here’s an example using Browserify to bundle a Node application. Use the <code>-v</code> verbose log flag to see how long each hook takes.</p>
 
 <pre><code class="language-json">{
-  &quot;name&quot;: &quot;app&quot;,
-  &quot;hooks&quot;: {
-    &quot;build&quot;: &quot;browserify --node app.js &gt; server.js&quot;,
-    &quot;clean&quot;: &quot;rm server.js&quot;
+  &#34;name&#34;: &#34;app&#34;,
+  &#34;hooks&#34;: {
+    &#34;build&#34;: &#34;browserify --node app.js &gt; server.js&#34;,
+    &#34;clean&#34;: &#34;rm server.js&#34;
   }
 }
 </code></pre>
 
-<p>Up performs runtime inference to discover what kind of application you&rsquo;re using, and does its best to provide helpful defaults. See the &ldquo;Runtimes&rdquo; section.</p>
+<p>Up performs runtime inference to discover what kind of application you’re using, and does its best to provide helpful defaults. See the “Runtimes” section.</p>
 
 <p>Multiple commands be provided by using arrays, and are run in separate shells:</p>
 
 <pre><code class="language-json">{
-  &quot;name&quot;: &quot;app&quot;,
-  &quot;hooks&quot;: {
-    &quot;build&quot;: [
-      &quot;mkdir -p build&quot;,
-      &quot;cp -fr static build&quot;,
-      &quot;browserify --node index.js &gt; build/client.js&quot;
+  &#34;name&#34;: &#34;app&#34;,
+  &#34;hooks&#34;: {
+    &#34;build&#34;: [
+      &#34;mkdir -p build&#34;,
+      &#34;cp -fr static build&#34;,
+      &#34;browserify --node index.js &gt; build/client.js&#34;
     ],
-    &quot;clean&quot;: &quot;rm -fr build&quot;
+    &#34;clean&#34;: &#34;rm -fr build&#34;
   }
 }
 </code></pre>
 
-<h2>Static File Serving</h2>
+<h2 id="static_file_serving">Static File Serving</h2>
 
-<p>Up ships with a robust static file server, to enable it specify the app <code>type</code> as <code>&quot;static&quot;</code>.</p>
+<p>Up ships with a robust static file server, to enable it specify the app <code>type</code> as <code>&#34;static&#34;</code>.</p>
 
 <pre><code class="language-json">{
-  &quot;type&quot;: &quot;static&quot;
+  &#34;type&#34;: &#34;static&#34;
 }
 </code></pre>
 
 <p>By default the current directory (<code>.</code>) is served, however you can change this using the <code>dir</code> setting. The following configuration restricts only serving of files in <code>./public/*</code>, any attempts to read files from outside of this root directory will fail.</p>
 
 <pre><code class="language-son">{
-  &quot;name&quot;: &quot;app&quot;,
-  &quot;type&quot;: &quot;static&quot;,
-  &quot;static&quot;: {
-    &quot;dir&quot;: &quot;public&quot;
+  &#34;name&#34;: &#34;app&#34;,
+  &#34;type&#34;: &#34;static&#34;,
+  &#34;static&#34;: {
+    &#34;dir&#34;: &#34;public&#34;
   }
 }
 
 </code></pre>
 
-<h2>Environment Variables</h2>
+<h2 id="environment_variables">Environment Variables</h2>
 
 <p>The <code>environment</code> object may be used for plain-text environment variables. Note that these are not encrypted, and are stored in up.json which is typically committed to GIT, so do not store secrets here.</p>
 
 <pre><code class="language-json">{
-  &quot;name&quot;: &quot;api&quot;,
-  &quot;environment&quot;: {
-    &quot;API_FEATURE_FOO&quot;: &quot;1&quot;,
-    &quot;API_FEATURE_BAR&quot;: &quot;0&quot;
+  &#34;name&#34;: &#34;api&#34;,
+  &#34;environment&#34;: {
+    &#34;API_FEATURE_FOO&#34;: &#34;1&#34;,
+    &#34;API_FEATURE_BAR&#34;: &#34;0&#34;
   }
 }
 </code></pre>
 
-<p>These become available to you via <code>process.env.API_FEATURES_FOO</code>, <code>os.Getenv(&quot;API_FEATURES_FOO&quot;)</code> or similar in your language of choice.</p>
+<p>These become available to you via <code>process.env.API_FEATURES_FOO</code>, <code>os.Getenv(&#34;API_FEATURES_FOO&#34;)</code> or similar in your language of choice.</p>
 
 <p>The following environment variables are provided by Up:</p>
 
 <ul>
-<li><code>PORT</code> – port number such as &ldquo;3000&rdquo;</li>
+<li><code>PORT</code> – port number such as “3000”</li>
 </ul>
 
-<h2>Header Injection</h2>
+<h2 id="header_injection">Header Injection</h2>
 
 <p>The <code>headers</code> object allows you to map HTTP header fields to paths. The most specific pattern takes precedence.</p>
 
-<p>Here&rsquo;s an example of two header fields specified for <code>/*</code> and <code>/*.css</code>:</p>
+<p>Here’s an example of two header fields specified for <code>/*</code> and <code>/*.css</code>:</p>
 
 <pre><code class="language-json">{
-  &quot;name&quot;: &quot;app&quot;,
-  &quot;type&quot;: &quot;static&quot;,
-  &quot;headers&quot;: {
-    &quot;/*&quot;: {
-      &quot;X-Something&quot;: &quot;I am applied to everything&quot;
+  &#34;name&#34;: &#34;app&#34;,
+  &#34;type&#34;: &#34;static&#34;,
+  &#34;headers&#34;: {
+    &#34;/*&#34;: {
+      &#34;X-Something&#34;: &#34;I am applied to everything&#34;
     },
-    &quot;/*.css&quot;: {
-      &quot;X-Something-Else&quot;: &quot;I am applied to styles&quot;
+    &#34;/*.css&#34;: {
+      &#34;X-Something-Else&#34;: &#34;I am applied to styles&#34;
     }
   }
 }
@@ -582,26 +582,26 @@ X-Something-Else: I am applied to styles
 Date: Mon, 31 Jul 2017 20:49:35 GMT
 </code></pre>
 
-<h2>Error Pages</h2>
+<h2 id="error_pages">Error Pages</h2>
 
 <p>By default Up will serve a minimalistic error page for you if the client accepts <code>text/html</code>, and it is explicitly enabled.</p>
 
-<p>You may customize the default template&rsquo;s <code>color</code> and optionally provide a <code>support_email</code> to allow customers to contact your support team.</p>
+<p>You may customize the default template’s <code>color</code> and optionally provide a <code>support_email</code> to allow customers to contact your support team.</p>
 
 <pre><code class="language-json">{
-  &quot;name&quot;: &quot;site&quot;,
-  &quot;type&quot;: &quot;static&quot;,
-  &quot;error_pages&quot;: {
-    &quot;enable&quot;: true,
-    &quot;variables&quot;: {
-      &quot;support_email&quot;: &quot;support@apex.sh&quot;,
-      &quot;color&quot;: &quot;#228ae6&quot;
+  &#34;name&#34;: &#34;site&#34;,
+  &#34;type&#34;: &#34;static&#34;,
+  &#34;error_pages&#34;: {
+    &#34;enable&#34;: true,
+    &#34;variables&#34;: {
+      &#34;support_email&#34;: &#34;support@apex.sh&#34;,
+      &#34;color&#34;: &#34;#228ae6&#34;
     }
   }
 }
 </code></pre>
 
-<p>If you&rsquo;d like to provide custom templates you may create one or more of the following files. The most specific file takes precedence.</p>
+<p>If you’d like to provide custom templates you may create one or more of the following files. The most specific file takes precedence.</p>
 
 <ul>
 <li><code>error.html</code> – Matches any 4xx or 5xx</li>
@@ -615,45 +615,45 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
   &lt;head&gt;
-    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta charset=&#34;utf-8&#34;&gt;
     &lt;title&gt;{{.StatusText}} - {{.StatusCode}}&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/style.css&quot;&gt;
+    &lt;link rel=&#34;stylesheet&#34; href=&#34;/css/style.css&#34;&gt;
   &lt;/head&gt;
   &lt;body&gt;
     &lt;h1&gt;{{.StatusText}}&lt;/h1&gt;
     {{with .Variables.support_email}}
-      &lt;span class=&quot;message&quot;&gt;Please try your request again or &lt;a href=&quot;mailto:{{.}}&quot;&gt;contact support&lt;/a&gt;.&lt;/span&gt;
+      &lt;span class=&#34;message&#34;&gt;Please try your request again or &lt;a href=&#34;mailto:{{.}}&#34;&gt;contact support&lt;/a&gt;.&lt;/span&gt;
     {{else}}
-      &lt;span class=&quot;message&quot;&gt;Please try your request again or contact support.&lt;/span&gt;
+      &lt;span class=&#34;message&#34;&gt;Please try your request again or contact support.&lt;/span&gt;
     {{end}}
   &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
 
-<h2>Script Injection</h2>
+<h2 id="script_injection">Script Injection</h2>
 
 <p>Scripts, styles, and other tags may be injected to HTML pages before the closing <code>&lt;/head&gt;</code> tag or closing <code>&lt;/body&gt;</code> tag.</p>
 
-<p>In the following example the <code>&lt;link rel=&quot;/style.css&quot;&gt;</code> is injected to the head, as well as the inlining the <code>scripts/config.js</code> file. A <code>&lt;script src=&quot;/app.js&quot;&gt;&lt;/script&gt;</code> is then injected into the body.</p>
+<p>In the following example the <code>&lt;link rel=&#34;/style.css&#34;&gt;</code> is injected to the head, as well as the inlining the <code>scripts/config.js</code> file. A <code>&lt;script src=&#34;/app.js&#34;&gt;&lt;/script&gt;</code> is then injected into the body.</p>
 
 <pre><code class="language-json">{
-  &quot;name&quot;: &quot;site&quot;,
-  &quot;type&quot;: &quot;static&quot;,
-  &quot;inject&quot;: {
-    &quot;head&quot;: [
+  &#34;name&#34;: &#34;site&#34;,
+  &#34;type&#34;: &#34;static&#34;,
+  &#34;inject&#34;: {
+    &#34;head&#34;: [
       {
-        &quot;type&quot;: &quot;style&quot;,
-        &quot;value&quot;: &quot;/style.css&quot;
+        &#34;type&#34;: &#34;style&#34;,
+        &#34;value&#34;: &#34;/style.css&#34;
       },
       {
-        &quot;type&quot;: &quot;inline script&quot;,
-        &quot;file&quot;: &quot;scripts/config.js&quot;
+        &#34;type&#34;: &#34;inline script&#34;,
+        &#34;file&#34;: &#34;scripts/config.js&#34;
       }
     ],
-    &quot;body&quot;: [
+    &#34;body&#34;: [
       {
-        &quot;type&quot;: &quot;script&quot;,
-        &quot;value&quot;: &quot;/app.js&quot;
+        &#34;type&#34;: &#34;script&#34;,
+        &#34;value&#34;: &#34;/app.js&#34;
       }
     ]
   }
@@ -676,35 +676,35 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 <p>All of these require a <code>value</code>, which sets the <code>src</code>, <code>href</code>, or inline content. Optionally you can populate <code>value</code> via a <code>file</code> path to a local file on disk, this is typically more convenient for inline scripts or styles. For example:</p>
 
 <ul>
-<li><code>{ &quot;type&quot;: &quot;literal&quot;, &quot;value&quot;: &quot;&lt;meta name=...&gt;&quot; }</code></li>
-<li><code>{ &quot;type&quot;: &quot;comment&quot;, &quot;value&quot;: &quot;Just a boring comment&quot; }</code></li>
-<li><code>{ &quot;type&quot;: &quot;script&quot;, &quot;value&quot;: &quot;/feedback.js&quot; }</code></li>
-<li><code>{ &quot;type&quot;: &quot;style&quot;, &quot;value&quot;: &quot;/feedback.css&quot; }</code></li>
-<li><code>{ &quot;type&quot;: &quot;inline script&quot;, &quot;file&quot;: &quot;/feedback.js&quot; }</code></li>
-<li><code>{ &quot;type&quot;: &quot;inline style&quot;, &quot;file&quot;: &quot;/feedback.css&quot; }</code></li>
-<li><code>{ &quot;type&quot;: &quot;script&quot;, &quot;value&quot;: &quot;var config = {};&quot; }</code></li>
-<li><code>{ &quot;type&quot;: &quot;google analytics&quot;, &quot;value&quot;: &quot;API_KEY&quot; }</code></li>
-<li><code>{ &quot;type&quot;: &quot;segment&quot;, &quot;value&quot;: &quot;API_KEY&quot; }</code></li>
+<li><code>{ &#34;type&#34;: &#34;literal&#34;, &#34;value&#34;: &#34;&lt;meta name=...&gt;&#34; }</code></li>
+<li><code>{ &#34;type&#34;: &#34;comment&#34;, &#34;value&#34;: &#34;Just a boring comment&#34; }</code></li>
+<li><code>{ &#34;type&#34;: &#34;script&#34;, &#34;value&#34;: &#34;/feedback.js&#34; }</code></li>
+<li><code>{ &#34;type&#34;: &#34;style&#34;, &#34;value&#34;: &#34;/feedback.css&#34; }</code></li>
+<li><code>{ &#34;type&#34;: &#34;inline script&#34;, &#34;file&#34;: &#34;/feedback.js&#34; }</code></li>
+<li><code>{ &#34;type&#34;: &#34;inline style&#34;, &#34;file&#34;: &#34;/feedback.css&#34; }</code></li>
+<li><code>{ &#34;type&#34;: &#34;script&#34;, &#34;value&#34;: &#34;var config = {};&#34; }</code></li>
+<li><code>{ &#34;type&#34;: &#34;google analytics&#34;, &#34;value&#34;: &#34;API_KEY&#34; }</code></li>
+<li><code>{ &#34;type&#34;: &#34;segment&#34;, &#34;value&#34;: &#34;API_KEY&#34; }</code></li>
 </ul>
 
-<h2>Redirects and Rewrites</h2>
+<h2 id="redirects_and_rewrites">Redirects and Rewrites</h2>
 
 <p>Up supports redirects and URL rewriting via the <code>redirects</code> object, which maps path patterns to a new location. If <code>status</code> is omitted (or 200) then it is a rewrite, otherwise it is a redirect.</p>
 
 <pre><code class="language-json">{
-  &quot;name&quot;: &quot;app&quot;,
-  &quot;type&quot;: &quot;static&quot;,
-  &quot;redirects&quot;: {
-    &quot;/blog&quot;: {
-      &quot;location&quot;: &quot;https://blog.apex.sh/&quot;,
-      &quot;status&quot;: 301
+  &#34;name&#34;: &#34;app&#34;,
+  &#34;type&#34;: &#34;static&#34;,
+  &#34;redirects&#34;: {
+    &#34;/blog&#34;: {
+      &#34;location&#34;: &#34;https://blog.apex.sh/&#34;,
+      &#34;status&#34;: 301
     },
-    &quot;/docs/:section/guides/:guide&quot;: {
-      &quot;location&quot;: &quot;/help/:section/:guide&quot;,
-      &quot;status&quot;: 302
+    &#34;/docs/:section/guides/:guide&#34;: {
+      &#34;location&#34;: &#34;/help/:section/:guide&#34;,
+      &#34;status&#34;: 302
     },
-    &quot;/store/*&quot;: {
-      &quot;location&quot;: &quot;/shop/:splat&quot;
+    &#34;/store/*&#34;: {
+      &#34;location&#34;: &#34;/shop/:splat&#34;
     }
   }
 }
@@ -715,12 +715,12 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 <p>A common use-case for rewrites is for SPAs or Single Page Apps, where you want to serve the <code>index.html</code> file regardless of the path. The other common requirement for SPAs is that you of course can serve scripts and styles, so by default if a file is found, it will not be rewritten to <code>location</code>.</p>
 
 <pre><code class="language-json">{
-  &quot;name&quot;: &quot;app&quot;,
-  &quot;type&quot;: &quot;static&quot;,
-  &quot;redirects&quot;: {
-    &quot;/*&quot;: {
-      &quot;location&quot;: &quot;/&quot;,
-      &quot;status&quot;: 200
+  &#34;name&#34;: &#34;app&#34;,
+  &#34;type&#34;: &#34;static&#34;,
+  &#34;redirects&#34;: {
+    &#34;/*&#34;: {
+      &#34;location&#34;: &#34;/&#34;,
+      &#34;status&#34;: 200
     }
   }
 }
@@ -729,13 +729,13 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 <p>If you wish to force the rewrite regardless of a file existing, set <code>force</code> to <code>true</code> as shown here:</p>
 
 <pre><code class="language-json">{
-  &quot;name&quot;: &quot;app&quot;,
-  &quot;type&quot;: &quot;static&quot;,
-  &quot;redirects&quot;: {
-    &quot;/*&quot;: {
-      &quot;location&quot;: &quot;/&quot;,
-      &quot;status&quot;: 200,
-      &quot;force&quot;: true
+  &#34;name&#34;: &#34;app&#34;,
+  &#34;type&#34;: &#34;static&#34;,
+  &#34;redirects&#34;: {
+    &#34;/*&#34;: {
+      &#34;location&#34;: &#34;/&#34;,
+      &#34;status&#34;: 200,
+      &#34;force&#34;: true
     }
   }
 }
@@ -743,13 +743,13 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 
 <p>Note that more specific target paths take precedence over those which are less specific, for example <code>/blog</code> will win over and <code>/*</code>.</p>
 
-<h2>Cross-Origin Resource Sharing</h2>
+<h2 id="cross_origin_resource_sharing">Cross-Origin Resource Sharing</h2>
 
 <p>CORS is a mechanism which allows requests originating from a different host to make requests to your API. Several options are available to restrict this access, however to enable CORS for everyone all you need is to add:</p>
 
 <pre><code class="language-json">{
-  &quot;cors&quot;: {
-    &quot;enable&quot;: true
+  &#34;cors&#34;: {
+    &#34;enable&#34;: true
   }
 }
 </code></pre>
@@ -757,16 +757,16 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 <p>Suppose you have <code>https://api.myapp.com</code>, you may want to customize <code>cors</code> to allow access only from <code>https://myapp.com</code>:</p>
 
 <pre><code class="language-json">{
-  &quot;cors&quot;: {
-    &quot;allowed_origins&quot;: [&quot;https://myapp.com&quot;],
-    &quot;allowed_methods&quot;: [&quot;HEAD&quot;, &quot;GET&quot;, &quot;POST&quot;, &quot;PUT&quot;, &quot;PATCH&quot;, &quot;DELETE&quot;],
-    &quot;allowed_headers&quot;: [&quot;Content-Type&quot;, &quot;Authorization&quot;]
+  &#34;cors&#34;: {
+    &#34;allowed_origins&#34;: [&#34;https://myapp.com&#34;],
+    &#34;allowed_methods&#34;: [&#34;HEAD&#34;, &#34;GET&#34;, &#34;POST&#34;, &#34;PUT&#34;, &#34;PATCH&#34;, &#34;DELETE&#34;],
+    &#34;allowed_headers&#34;: [&#34;Content-Type&#34;, &#34;Authorization&#34;]
   }
 }
 </code></pre>
 
 <ul>
-<li><code>allowed_origins</code> – A list of origins a cross-domain request can be executed from. Use <code>*</code> to allow any origin, or a wildcard such as <code>http://*.domain.com</code>. Default is <code>[&quot;*&quot;]</code>.</li>
+<li><code>allowed_origins</code> – A list of origins a cross-domain request can be executed from. Use <code>*</code> to allow any origin, or a wildcard such as <code>http://*.domain.com</code>. Default is <code>[&#34;*&#34;]</code>.</li>
 <li><code>allowed_methods</code> – A list of methods the client is allowed to use with cross-domain requests. Default value is simple methods (HEAD, GET, POST).</li>
 <li><code>allowed_headers</code> – A list of headers the client is allowed to use with cross-domain requests. If the special <code>*</code> value is present in the list, all headers will be allowed. Default is <code>[]</code>.</li>
 <li><code>exposed_headers</code> – A list of headers which are safe to expose to the API of a CORS response.</li>
@@ -774,7 +774,7 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 <li><code>allow_credentials</code> – A boolean indicating whether the request can include user credentials such as cookies, HTTP authentication or client side SSL certificates. Defaults to true.</li>
 </ul>
 
-<h2>Reverse Proxy</h2>
+<h2 id="reverse_proxy">Reverse Proxy</h2>
 
 <p>Up acts as a reverse proxy in front of your server, this is how CORS, redirection, script injection and other middleware style features are provided.</p>
 
@@ -788,21 +788,21 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 <li>When <code>app.js</code> is detected <code>node app.js</code> is used</li>
 <li>When <code>app.py</code> is detected <code>python app.py</code> is used</li>
 </ul></li>
-<li><code>backoff</code> – Backoff configuration object described in &ldquo;Crash Recovery&rdquo;</li>
+<li><code>backoff</code> – Backoff configuration object described in “Crash Recovery”</li>
 <li><code>listen_timeout</code> – Timeout in seconds Up will wait for your app to boot and listen on <code>PORT</code> (Default <code>15</code>, Max <code>25</code>)</li>
 <li><code>shutdown_timeout</code> – Timeout in seconds Up will wait after sending a SIGINT to your server, before sending a SIGKILL (Default <code>15</code>)</li>
 </ul>
 
 <pre><code class="language-json">{
-  &quot;proxy&quot;: {
-    &quot;command&quot;: &quot;node app.js&quot;,
-    &quot;listen_timeout&quot;: 12,
-    &quot;shutdown_timeout&quot;: 5
+  &#34;proxy&#34;: {
+    &#34;command&#34;: &#34;node app.js&#34;,
+    &#34;listen_timeout&#34;: 12,
+    &#34;shutdown_timeout&#34;: 5
   }
 }
 </code></pre>
 
-<h3>Crash Recovery</h3>
+<h3 id="crash_recovery">Crash Recovery</h3>
 
 <p>Another benefit of using Up as a reverse proxy is performing crash recovery, restarting your server upon crashing and re-attempting the request before responding to the client with an error.</p>
 
@@ -818,36 +818,36 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 
 <p>A total of 3 consecutive attempts will be made before responding with an error, in the default case this will be a total of 700ms for the three attempts.</p>
 
-<p>Here&rsquo;s an example tweaking the default behaviour:</p>
+<p>Here’s an example tweaking the default behaviour:</p>
 
 <pre><code class="language-json">{
-  &quot;proxy&quot;: {
-    &quot;command&quot;: &quot;node app.js&quot;,
-    &quot;backoff&quot;: {
-      &quot;min&quot;: 500,
-      &quot;max&quot;: 1500,
-      &quot;factor&quot;: 1.5,
-      &quot;attempts&quot;: 5,
-      &quot;jitter&quot;: true
+  &#34;proxy&#34;: {
+    &#34;command&#34;: &#34;node app.js&#34;,
+    &#34;backoff&#34;: {
+      &#34;min&#34;: 500,
+      &#34;max&#34;: 1500,
+      &#34;factor&#34;: 1.5,
+      &#34;attempts&#34;: 5,
+      &#34;jitter&#34;: true
     }
   }
 }
 </code></pre>
 
-<p>Since Up&rsquo;s purpose is to proxy your http traffic, Up will treat network errors as a crash.  When Up detects this, it will allow the server to cleanly close by sending a SIGINT, it the server does not close within <code>proxy.shutdown_timeout</code> seconds, it will forcibly close it with a SIGKILL.</p>
+<p>Since Up’s purpose is to proxy your http traffic, Up will treat network errors as a crash.  When Up detects this, it will allow the server to cleanly close by sending a SIGINT, it the server does not close within <code>proxy.shutdown_timeout</code> seconds, it will forcibly close it with a SIGKILL.</p>
 
-<h2>DNS Zones &amp; Records</h2>
+<h2 id="dns_zones_records">DNS Zones &amp; Records</h2>
 
-<p>Up allows you to configure DNS zones and records. One or more zones may be provided as keys in the <code>dns</code> object (&ldquo;myapp.com&rdquo; here), with a number of records defined within it.</p>
+<p>Up allows you to configure DNS zones and records. One or more zones may be provided as keys in the <code>dns</code> object (“myapp.com” here), with a number of records defined within it.</p>
 
 <pre><code class="language-json">{
-  &quot;name&quot;: &quot;gh-polls&quot;,
-  &quot;dns&quot;: {
-    &quot;gh-polls.com&quot;: [
+  &#34;name&#34;: &#34;gh-polls&#34;,
+  &#34;dns&#34;: {
+    &#34;gh-polls.com&#34;: [
       {
-        &quot;name&quot;: &quot;app.gh-polls.com&quot;,
-        &quot;type&quot;: &quot;CNAME&quot;,
-        &quot;value&quot;: [&quot;gh-polls.netlify.com&quot;]
+        &#34;name&#34;: &#34;app.gh-polls.com&#34;,
+        &#34;type&#34;: &#34;CNAME&#34;,
+        &#34;value&#34;: [&#34;gh-polls.netlify.com&#34;]
       }
     ]
   }
@@ -870,20 +870,20 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 <li>TXT</li>
 </ul>
 
-<h2>Stages &amp; Custom Domains</h2>
+<h2 id="stages_custom_domains">Stages &amp; Custom Domains</h2>
 
 <p>Up supports per-stage configuration, such as mapping of custom domains. Stage configuration is optional, this example maps all three to sub-domains:</p>
 
 <pre><code class="language-json">{
-  &quot;stages&quot;: {
-    &quot;production&quot;: {
-      &quot;domain&quot;: &quot;api.gh-polls.com&quot;
+  &#34;stages&#34;: {
+    &#34;production&#34;: {
+      &#34;domain&#34;: &#34;api.gh-polls.com&#34;
     },
-    &quot;staging&quot;: {
-      &quot;domain&quot;: &quot;stage.gh-polls.com&quot;
+    &#34;staging&#34;: {
+      &#34;domain&#34;: &#34;stage.gh-polls.com&#34;
     }
-    &quot;development&quot;: {
-      &quot;domain&quot;: &quot;dev.gh-polls.com&quot;
+    &#34;development&#34;: {
+      &#34;domain&#34;: &#34;dev.gh-polls.com&#34;
     }
   }
 }
@@ -892,9 +892,9 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 <p>This example maps only the production stage:</p>
 
 <pre><code class="language-json">{
-  &quot;stages&quot;: {
-    &quot;production&quot;: {
-      &quot;domain&quot;: &quot;gh-polls.com&quot;
+  &#34;stages&#34;: {
+    &#34;production&#34;: {
+      &#34;domain&#34;: &#34;gh-polls.com&#34;
     }
   }
 }
@@ -906,15 +906,15 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 
 <ul>
 <li><code>development</code> – The latest deployment</li>
-<li><code>staging</code> – The latest deployment specific to &ldquo;staging&rdquo;</li>
-<li><code>production</code> – The latest deployment specific to &ldquo;production&rdquo;</li>
+<li><code>staging</code> – The latest deployment specific to “staging”</li>
+<li><code>production</code> – The latest deployment specific to “production”</li>
 </ul>
 
-<p>If you&rsquo;re familiar with AWS Lambda, &ldquo;development&rdquo; is the $LATEST version, while &ldquo;staging&rdquo; and &ldquo;production&rdquo; are aliases.</p>
+<p>If you’re familiar with AWS Lambda, “development” is the $LATEST version, while “staging” and “production” are aliases.</p>
 
 <p>You may purchase domains from the command-line, or map custom domains from other registrars. Up uses Route53 to purchase domains using your AWS account credit card. See <code>up help domains</code>.</p>
 
-<h2>Ignoring Files</h2>
+<h2 id="ignoring_files">Ignoring Files</h2>
 
 <p>Up supports gitignore style pattern matching for omitting files from deployment. The following files are loaded in sequence:</p>
 
@@ -929,7 +929,7 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 *.go
 </code></pre>
 
-<h3>Negation</h3>
+<h3 id="negation">Negation</h3>
 
 <p>By default dotfiles are ignored, if you wish to include them, you may use <code>!</code> to negate a pattern in <code>.upignore</code>:</p>
 
@@ -945,7 +945,7 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 !src/**
 </code></pre>
 
-<h3>Inspecting</h3>
+<h3 id="inspecting">Inspecting</h3>
 
 <p>To get a better idea of which files are being filtered or added, use <code>up -v</code> when deploying, and you may also find it useful to <code>grep</code> in some cases:</p>
 
@@ -961,16 +961,16 @@ DEBU filtered node_modules/chalk/readme.md – 6136
 
 <p>You may also wish to use <code>up build --size</code> to view the largest files within the zip.</p>
 
-<h3>Node specifics</h3>
+<h3 id="node_specifics">Node specifics</h3>
 
 <p>When building a Node project, <code>node_modules</code> is often added to <code>.gitignore</code>, so Up special-cases this scenario so that <code>node_modules</code> is not excluded by default.</p>
 
-<p>If you&rsquo;re using a bundler such as Webpack or Browserify instead, you may wish to ignore <code>node_modules</code> as they&rsquo;re not required in production, add this to your <code>./.upignore</code>:</p>
+<p>If you’re using a bundler such as Webpack or Browserify instead, you may wish to ignore <code>node_modules</code> as they’re not required in production, add this to your <code>./.upignore</code>:</p>
 
 <pre><code>node_modules
 </code></pre>
 
-<h3>Pattern matching</h3>
+<h3 id="pattern_matching">Pattern matching</h3>
 
 <p>Note that patterns are matched much like <code>.gitignore</code>, so if you have the following <code>.upignore</code> contents even <code>node_modules/debug/src/index.js</code> will be ignored since it contains <code>src</code>.</p>
 
@@ -1002,9 +1002,9 @@ DEBU filtered node_modules/chalk/readme.md – 6136
 <li>Static sites</li>
 </ul>
 
-<h2>Node.js</h2>
+<h2 id="node_js">Node.js</h2>
 
-<p>When a <code>package.json</code> file is detected, Node.js is the assumed runtime. By default the latest version supported by Lambda is used (6.10). If you&rsquo;d like to deploy other versions of Node you may want to consider using the <a href="https://github.com/apex/up-examples/tree/master/oss/node-8">Node binaries</a>.</p>
+<p>When a <code>package.json</code> file is detected, Node.js is the assumed runtime. By default the latest version supported by Lambda is used (6.10). If you’d like to deploy other versions of Node you may want to consider using the <a href="https://github.com/apex/up-examples/tree/master/oss/node-8">Node binaries</a>.</p>
 
 <p>The <code>build</code> hook becomes:</p>
 
@@ -1016,7 +1016,7 @@ DEBU filtered node_modules/chalk/readme.md – 6136
 <pre><code>$ npm start
 </code></pre>
 
-<h2>Python</h2>
+<h2 id="python">Python</h2>
 
 <p>When requirements.txt is present the build command becomes:</p>
 
@@ -1028,7 +1028,7 @@ DEBU filtered node_modules/chalk/readme.md – 6136
 <pre><code>$ python app.py
 </code></pre>
 
-<h2>Golang</h2>
+<h2 id="golang">Golang</h2>
 
 <p>When a <code>main.go</code> file is detected, Golang is the assumed runtime.</p>
 
@@ -1042,7 +1042,7 @@ DEBU filtered node_modules/chalk/readme.md – 6136
 <pre><code>$ rm server
 </code></pre>
 
-<h2>Crystal</h2>
+<h2 id="crystal">Crystal</h2>
 
 <p>When a <code>main.cr</code> file is detected, Crystal is the assumed runtime. Note that this runtime requires Docker to be installed.</p>
 
@@ -1056,7 +1056,7 @@ DEBU filtered node_modules/chalk/readme.md – 6136
 <pre><code>$ rm server
 </code></pre>
 
-<h2>Static</h2>
+<h2 id="static">Static</h2>
 
 <p>When an <code>index.html</code> file is detected the project is assumed to be static.</p>
 
@@ -1076,7 +1076,7 @@ Flags:
 
   -h, --help           Output usage information.
   -r, --region=REGION  Override the region.
-  -C, --chdir=&quot;.&quot;      Change working directory.
+  -C, --chdir=&#34;.&#34;      Change working directory.
   -v, --verbose        Enable verbose log output.
       --version        Show application version.
 
@@ -1102,9 +1102,9 @@ Commands:
   version         Show version.
 </code></pre>
 
-<h2>Deploy</h2>
+<h2 id="deploy">Deploy</h2>
 
-<p>Deploy the project, by default to the &ldquo;development&rdquo; stage. Note that running <code>up</code> and <code>up deploy</code> are identical, however for staging and production you must run <code>up deploy &lt;stage&gt;</code>.</p>
+<p>Deploy the project, by default to the “development” stage. Note that running <code>up</code> and <code>up deploy</code> are identical, however for staging and production you must run <code>up deploy &lt;stage&gt;</code>.</p>
 
 <pre><code>Usage:
 
@@ -1114,7 +1114,7 @@ Flags:
 
   -h, --help           Output usage information.
   -r, --region=REGION  Override the region.
-  -C, --chdir=&quot;.&quot;      Change working directory.
+  -C, --chdir=&#34;.&#34;      Change working directory.
   -v, --verbose        Enable verbose log output.
       --version        Show application version.
 
@@ -1123,7 +1123,7 @@ Args:
   [&lt;stage&gt;]  Target stage name.
 </code></pre>
 
-<h3>Examples</h3>
+<h3 id="examples">Examples</h3>
 
 <p>Deploy the project to the development stage.</p>
 
@@ -1145,7 +1145,7 @@ Args:
 <pre><code>$ up deploy production
 </code></pre>
 
-<h2>Config</h2>
+<h2 id="config">Config</h2>
 
 <p>Validate and output configuration with defaults applied.</p>
 
@@ -1153,54 +1153,54 @@ Args:
 </code></pre>
 
 <pre><code class="language-json">{
-  &quot;name&quot;: &quot;app&quot;,
-  &quot;description&quot;: &quot;&quot;,
-  &quot;type&quot;: &quot;server&quot;,
-  &quot;headers&quot;: null,
-  &quot;redirects&quot;: null,
-  &quot;hooks&quot;: {
-    &quot;build&quot;: &quot;GOOS=linux GOARCH=amd64 go build -o server *.go&quot;,
-    &quot;clean&quot;: &quot;rm server&quot;
+  &#34;name&#34;: &#34;app&#34;,
+  &#34;description&#34;: &#34;&#34;,
+  &#34;type&#34;: &#34;server&#34;,
+  &#34;headers&#34;: null,
+  &#34;redirects&#34;: null,
+  &#34;hooks&#34;: {
+    &#34;build&#34;: &#34;GOOS=linux GOARCH=amd64 go build -o server *.go&#34;,
+    &#34;clean&#34;: &#34;rm server&#34;
   },
-  &quot;environment&quot;: null,
-  &quot;regions&quot;: [
-    &quot;us-west-2&quot;
+  &#34;environment&#34;: null,
+  &#34;regions&#34;: [
+    &#34;us-west-2&#34;
   ],
-  &quot;inject&quot;: null,
-  &quot;lambda&quot;: {
-    &quot;role&quot;: &quot;arn:aws:iam::ACCOUNT:role/lambda_function&quot;,
-    &quot;memory&quot;: 128,
-    &quot;timeout&quot;: 5
+  &#34;inject&#34;: null,
+  &#34;lambda&#34;: {
+    &#34;role&#34;: &#34;arn:aws:iam::ACCOUNT:role/lambda_function&#34;,
+    &#34;memory&#34;: 128,
+    &#34;timeout&#34;: 5
   },
-  &quot;cors&quot;: null,
-  &quot;error_pages&quot;: {
-    &quot;dir&quot;: &quot;.&quot;,
-    &quot;variables&quot;: null
+  &#34;cors&#34;: null,
+  &#34;error_pages&#34;: {
+    &#34;dir&#34;: &#34;.&#34;,
+    &#34;variables&#34;: null
   },
-  &quot;proxy&quot;: {
-    &quot;command&quot;: &quot;./server&quot;,
-    &quot;backoff&quot;: {
-      &quot;min&quot;: 100,
-      &quot;max&quot;: 500,
-      &quot;factor&quot;: 2,
-      &quot;attempts&quot;: 3,
-      &quot;jitter&quot;: false
+  &#34;proxy&#34;: {
+    &#34;command&#34;: &#34;./server&#34;,
+    &#34;backoff&#34;: {
+      &#34;min&#34;: 100,
+      &#34;max&#34;: 500,
+      &#34;factor&#34;: 2,
+      &#34;attempts&#34;: 3,
+      &#34;jitter&#34;: false
     }
   },
-  &quot;static&quot;: {
-    &quot;dir&quot;: &quot;.&quot;
+  &#34;static&#34;: {
+    &#34;dir&#34;: &#34;.&#34;
   },
-  &quot;logs&quot;: {
-    &quot;disable&quot;: false
+  &#34;logs&#34;: {
+    &#34;disable&#34;: false
   },
-  &quot;dns&quot;: {
-    &quot;zones&quot;: null
+  &#34;dns&#34;: {
+    &#34;zones&#34;: null
   }
 }
 ...
 </code></pre>
 
-<h2>Logs</h2>
+<h2 id="logs">Logs</h2>
 
 <p>Show or tail log output with optional query for filtering. When viewing or tailing logs, you are viewing them from <em>all</em> stages, see the examples below to filter on a stage name.</p>
 
@@ -1212,7 +1212,7 @@ Args:
 
    -h, --help           Output usage information.
    -r, --region=REGION  Override the region.
-   -C, --chdir=&quot;.&quot;      Change working directory.
+   -C, --chdir=&#34;.&#34;      Change working directory.
    -v, --verbose        Enable verbose log output.
        --version        Show application version.
    -f, --follow         Follow or tail the live logs.
@@ -1222,23 +1222,23 @@ Args:
    [&lt;query&gt;]  Query pattern for filtering logs.
 </code></pre>
 
-<h3>JSON Output</h3>
+<h3 id="json_output">JSON Output</h3>
 
 <p>When stdout is not a terminal Up will output the logs as JSON, which can be useful for further processing with tools such as <a href="https://stedolan.github.io/jq/">jq</a>.</p>
 
 <p>In this contrived example the last 5 hours of production errors are piped to <code>jq</code> to produce a CSV of HTTP methods to IP address.</p>
 
-<pre><code>$ up logs -s 5h 'production error' | jq -r '.|[.fields.method,.fields.ip]|@csv'
+<pre><code>$ up logs -s 5h &#39;production error&#39; | jq -r &#39;.|[.fields.method,.fields.ip]|@csv&#39;
 </code></pre>
 
 <p>Yielding:</p>
 
-<pre><code>&quot;GET&quot;,&quot;207.194.34.24&quot;
-&quot;GET&quot;,&quot;207.194.34.24&quot;
-&quot;GET&quot;,&quot;207.194.34.24&quot;
+<pre><code>&#34;GET&#34;,&#34;207.194.34.24&#34;
+&#34;GET&#34;,&#34;207.194.34.24&#34;
+&#34;GET&#34;,&#34;207.194.34.24&#34;
 </code></pre>
 
-<h3>Examples</h3>
+<h3 id="examples">Examples</h3>
 
 <p>Show logs from the past 5 minutes.</p>
 
@@ -1267,7 +1267,7 @@ Args:
 
 <p>Show live error logs from production only.</p>
 
-<pre><code>$ up logs -f 'production error'
+<pre><code>$ up logs -f &#39;production error&#39;
 </code></pre>
 
 <p>Show error logs, which include 5xx responses.</p>
@@ -1277,65 +1277,65 @@ Args:
 
 <p>Show error and warning logs, which include 4xx and 5xx responses.</p>
 
-<pre><code>$ up logs 'warn or error'
+<pre><code>$ up logs &#39;warn or error&#39;
 </code></pre>
 
 <p>Show logs with a specific message.</p>
 
-<pre><code>$ up logs 'message = &quot;user login&quot;'
+<pre><code>$ up logs &#39;message = &#34;user login&#34;&#39;
 </code></pre>
 
 <p>Show responses with latency above 15ms.</p>
 
-<pre><code>$ up logs 'duration &gt; 15'
+<pre><code>$ up logs &#39;duration &gt; 15&#39;
 </code></pre>
 
 <p>Show 4xx and 5xx responses in production</p>
 
-<pre><code>$ up logs 'production (warn or error)'
+<pre><code>$ up logs &#39;production (warn or error)&#39;
 </code></pre>
 
 <p>Show production 5xx responses with a POST, PUT, or DELETE method.</p>
 
-<pre><code>$ up logs 'production error method in (&quot;POST&quot;, &quot;PUT&quot;, &quot;DELETE&quot;)
+<pre><code>$ up logs &#39;production error method in (&#34;POST&#34;, &#34;PUT&#34;, &#34;DELETE&#34;)
 </code></pre>
 
 <p>Show 200 responses with latency above 1500ms.</p>
 
-<pre><code>$ up logs 'status = 200 duration &gt; 1.5s'
+<pre><code>$ up logs &#39;status = 200 duration &gt; 1.5s&#39;
 </code></pre>
 
 <p>Show responses with bodies larger than 100kb.</p>
 
-<pre><code>$ up logs 'size &gt; 100kb'
+<pre><code>$ up logs &#39;size &gt; 100kb&#39;
 </code></pre>
 
 <p>Show 4xx and 5xx responses.</p>
 
-<pre><code>$ up logs 'status &gt;= 400'
+<pre><code>$ up logs &#39;status &gt;= 400&#39;
 </code></pre>
 
 <p>Show emails containing @apex.sh.</p>
 
-<pre><code>$ up logs 'user.email contains &quot;@apex.sh&quot;'
+<pre><code>$ up logs &#39;user.email contains &#34;@apex.sh&#34;&#39;
 </code></pre>
 
 <p>Show emails ending with @apex.sh.</p>
 
-<pre><code>$ up logs 'user.email = &quot;*@apex.sh&quot;'
+<pre><code>$ up logs &#39;user.email = &#34;*@apex.sh&#34;&#39;
 </code></pre>
 
 <p>Show emails starting with tj@.</p>
 
-<pre><code>$ up logs 'user.email = &quot;tj@*&quot;'
+<pre><code>$ up logs &#39;user.email = &#34;tj@*&#34;&#39;
 </code></pre>
 
 <p>Show logs with a more complex query.</p>
 
-<pre><code>$ up logs 'method in (&quot;POST&quot;, &quot;PUT&quot;) ip = &quot;207.*&quot; status = 200 duration &gt;= 50'
+<pre><code>$ up logs &#39;method in (&#34;POST&#34;, &#34;PUT&#34;) ip = &#34;207.*&#34; status = 200 duration &gt;= 50&#39;
 </code></pre>
 
-<h2>URL</h2>
+<h2 id="url">URL</h2>
 
 <p>Show, open, or copy a stage endpoint.</p>
 
@@ -1347,7 +1347,7 @@ Flags:
 
   -h, --help           Output usage information.
   -r, --region=REGION  Override the region.
-  -C, --chdir=&quot;.&quot;      Change working directory.
+  -C, --chdir=&#34;.&#34;      Change working directory.
   -v, --verbose        Enable verbose log output.
       --version        Show application version.
   -o, --open           Open endpoint in the browser.
@@ -1358,7 +1358,7 @@ Args:
   [&lt;stage&gt;]  Name of the stage.
 </code></pre>
 
-<h3>Examples</h3>
+<h3 id="examples">Examples</h3>
 
 <p>Show the development endpoint.</p>
 
@@ -1390,7 +1390,7 @@ Args:
 <pre><code>$ up url -c production
 </code></pre>
 
-<h2>Start</h2>
+<h2 id="start">Start</h2>
 
 <p>Start development server. The development server runs the same proxy that is used in production for serving, so you can test a static site or application locally with the same feature-set.</p>
 
@@ -1404,13 +1404,13 @@ Flags:
 
   -h, --help             Output usage information.
   -r, --region=REGION    Override the region.
-  -C, --chdir=&quot;.&quot;        Change working directory.
+  -C, --chdir=&#34;.&#34;        Change working directory.
   -v, --verbose          Enable verbose log output.
       --version          Show application version.
-      --address=&quot;:3000&quot;  Address for server.
+      --address=&#34;:3000&#34;  Address for server.
 </code></pre>
 
-<h3>Examples</h3>
+<h3 id="examples">Examples</h3>
 
 <p>Start development server on port 3000.</p>
 
@@ -1422,11 +1422,11 @@ Flags:
 <pre><code>$ up start --address :5000
 </code></pre>
 
-<h2>Stack</h2>
+<h2 id="stack">Stack</h2>
 
 <p>Stack resource management. The stack is essentially all of the resources powering your app, which is configured by Up on the first deploy.</p>
 
-<p>At any time if you&rsquo;d like to delete the application simply run <code>$ up stack delete</code>. To view the status and potential errors use <code>$ up stack</code>.</p>
+<p>At any time if you’d like to delete the application simply run <code>$ up stack delete</code>. To view the status and potential errors use <code>$ up stack</code>.</p>
 
 <pre><code>Usage:
 
@@ -1436,7 +1436,7 @@ Flags:
 
   -h, --help           Output usage information.
   -r, --region=REGION  Override the region.
-  -C, --chdir=&quot;.&quot;      Change working directory.
+  -C, --chdir=&#34;.&#34;      Change working directory.
   -v, --verbose        Enable verbose log output.
       --version        Show application version.
 
@@ -1447,7 +1447,7 @@ Subcommands:
   stack status    Show status of resources.
 </code></pre>
 
-<h3>Examples</h3>
+<h3 id="examples">Examples</h3>
 
 <p>Show status of the stack resources.</p>
 
@@ -1469,9 +1469,9 @@ Subcommands:
 <pre><code>$ up stack delete
 </code></pre>
 
-<h2>Build</h2>
+<h2 id="build">Build</h2>
 
-<p>Build zip file, typically only helpful for inspecting its contents. If you&rsquo;re interested in seeing what files are causing bloat, use the <code>--size</code> flag to list files by size descending.</p>
+<p>Build zip file, typically only helpful for inspecting its contents. If you’re interested in seeing what files are causing bloat, use the <code>--size</code> flag to list files by size descending.</p>
 
 <pre><code>Usage:
 
@@ -1481,13 +1481,13 @@ Flags:
 
   -h, --help           Output usage information.
   -r, --region=REGION  Override the region.
-  -C, --chdir=&quot;.&quot;      Change working directory.
+  -C, --chdir=&#34;.&#34;      Change working directory.
   -v, --verbose        Enable verbose log output.
       --version        Show application version.
       --size           Show zip contents size information.
 </code></pre>
 
-<h3>Examples</h3>
+<h3 id="examples">Examples</h3>
 
 <p>Build archive and save to ./out.zip</p>
 
@@ -1513,27 +1513,27 @@ Flags:
             
               <div class="Page" id="guides">
                 <h1>Guides</h1>
-                <h2>Development to Production Workflow</h2>
+                <h2 id="development_to_production_workflow">Development to Production Workflow</h2>
 
 <p>This section guides you through taking a small application from development, to production, complete with purchasing and mapping a custom domain.</p>
 
-<h3>Deploying</h3>
+<h3 id="deploying">Deploying</h3>
 
 <p>First create <code>app.js</code> in an empty directory with the following Node.js app. Note that it must listen on <strong>PORT</strong> which is passed by Up.</p>
 
-<pre><code class="language-js">const http = require('http')
+<pre><code class="language-js">const http = require(&#39;http&#39;)
 const { PORT = 3000 } = process.env
 
 http.createServer((req, res) =&gt; {
-  res.end('Hello World\n')
+  res.end(&#39;Hello World\n&#39;)
 }).listen(PORT)
 </code></pre>
 
 <p>Next you should give your application a name and start configuring. The <code>profile</code> name should correspond with the name in <code>~/.aws/credentials</code> so that Up knows which AWS account to deploy to, and which credentials to use.</p>
 
 <pre><code class="language-json">{
-  &quot;name&quot;: &quot;up-example&quot;,
-  &quot;profile&quot;: &quot;up-tobi&quot;
+  &#34;name&#34;: &#34;up-example&#34;,
+  &#34;profile&#34;: &#34;up-tobi&#34;
 }
 </code></pre>
 
@@ -1552,9 +1552,9 @@ http.createServer((req, res) =&gt; {
 Hello World
 </code></pre>
 
-<h3>Purchasing a Domain</h3>
+<h3 id="purchasing_a_domain">Purchasing a Domain</h3>
 
-<p>Domains can be mapped from existing services, or purchased directly from AWS via Route53. First check if the domain you&rsquo;d like is available:</p>
+<p>Domains can be mapped from existing services, or purchased directly from AWS via Route53. First check if the domain you’d like is available:</p>
 
 <pre><code>$ up domains check up.com
 
@@ -1601,7 +1601,7 @@ Hello World
   Address: Some address here
 </code></pre>
 
-<p>It can take a few minutes for AWS to finalize the purchase, you should receive an email, then you&rsquo;ll see it in the <code>up domains</code> output, along with the automatic renewal time.</p>
+<p>It can take a few minutes for AWS to finalize the purchase, you should receive an email, then you’ll see it in the <code>up domains</code> output, along with the automatic renewal time.</p>
 
 <pre><code>$ up domains
 
@@ -1609,15 +1609,15 @@ Hello World
   up-example.com           renews Sep 19 19:40:50
 </code></pre>
 
-<h3>Deploying to Stages</h3>
+<h3 id="deploying_to_stages">Deploying to Stages</h3>
 
 <p>Before deploying to the staging and production stages, first tweak the application a little to include the <code>UP_STAGE</code> environment variable:</p>
 
-<pre><code class="language-js">const http = require('http')
+<pre><code class="language-js">const http = require(&#39;http&#39;)
 const { PORT = 3000, UP_STAGE } = process.env
 
 http.createServer((req, res) =&gt; {
-  res.end('Hello World from ' + UP_STAGE)
+  res.end(&#39;Hello World from &#39; + UP_STAGE)
 }).listen(PORT)
 </code></pre>
 
@@ -1633,23 +1633,23 @@ $ up deploy production
 $ up url production -o
 </code></pre>
 
-<p>You should see &ldquo;Hello World from production&rdquo; and &ldquo;Hello World from development&rdquo;.</p>
+<p>You should see “Hello World from production” and “Hello World from development”.</p>
 
-<h3>Mapping Custom Domains to Stages</h3>
+<h3 id="mapping_custom_domains_to_stages">Mapping Custom Domains to Stages</h3>
 
 <p>Now that you have an application deployed, you probably want a fancy custom domain for it right? You can map these using the <code>stages</code> and <code>domain</code> properties.</p>
 
-<p>Here we let Up know that we want <code>up-example.com</code> for production and <code>dev.up-example</code> for development. You could also map staging to <code>stage.up-example.com</code> or similar if you&rsquo;d like.</p>
+<p>Here we let Up know that we want <code>up-example.com</code> for production and <code>dev.up-example</code> for development. You could also map staging to <code>stage.up-example.com</code> or similar if you’d like.</p>
 
 <pre><code class="language-json">{
-  &quot;name&quot;: &quot;up-example&quot;,
-  &quot;profile&quot;: &quot;up-tobi&quot;,
-  &quot;stages&quot;: {
-    &quot;development&quot;: {
-      &quot;domain&quot;: &quot;dev.up-example.com&quot;
+  &#34;name&#34;: &#34;up-example&#34;,
+  &#34;profile&#34;: &#34;up-tobi&#34;,
+  &#34;stages&#34;: {
+    &#34;development&#34;: {
+      &#34;domain&#34;: &#34;dev.up-example.com&#34;
     },
-    &quot;production&quot;: {
-      &quot;domain&quot;: &quot;up-example.com&quot;
+    &#34;production&#34;: {
+      &#34;domain&#34;: &#34;up-example.com&#34;
     }
   }
 }
@@ -1657,7 +1657,7 @@ $ up url production -o
 
 <p>Note that you could map staging to a domain like <code>staging-myapp.com</code> as well, it does not have to be a sub-domain of your production domain.</p>
 
-<p>Now when you run <code>up stack plan</code> to preview changes to your resources, it will prompt you to verify the Let&rsquo;s Encrypt certificate emails that AWS sends.</p>
+<p>Now when you run <code>up stack plan</code> to preview changes to your resources, it will prompt you to verify the Let’s Encrypt certificate emails that AWS sends.</p>
 
 <pre><code>$ up stack plan
 
@@ -1665,7 +1665,7 @@ $ up url production -o
      ⠧ confirm: up-example.com
 </code></pre>
 
-<p>AWS requires email verification to prove you own the domain. After clicking &ldquo;I Approve&rdquo; in the email, the output will resume and you&rsquo;ll see some new resources Up will be creating.</p>
+<p>AWS requires email verification to prove you own the domain. After clicking “I Approve” in the email, the output will resume and you’ll see some new resources Up will be creating.</p>
 
 <pre><code>Add AWS::ApiGateway::DomainName
   id: ApiDomainDevelopment
@@ -1686,7 +1686,7 @@ Add AWS::Route53::RecordSet
   id: DnsZoneUpExampleComRecordUpExampleCom
 </code></pre>
 
-<p>If you&rsquo;re curious, now that Up knows you want to map the domain(s), it will create:</p>
+<p>If you’re curious, now that Up knows you want to map the domain(s), it will create:</p>
 
 <ul>
 <li>Registers ACM free SSL certificate(s) for your domain(s)</li>
@@ -1700,28 +1700,28 @@ Add AWS::Route53::RecordSet
 <pre><code>$ up stack apply
 </code></pre>
 
-<p>After the changes have been applied, it can take roughly 10-40 minutes for CloudFront to distribute the configuration and SSL certificate globally, so until then our up-example.com domain won&rsquo;t work.</p>
+<p>After the changes have been applied, it can take roughly 10-40 minutes for CloudFront to distribute the configuration and SSL certificate globally, so until then our up-example.com domain won’t work.</p>
 
 <p>Once available <a href="https://up-example.com">https://up-example.com</a> will always point to production via <code>up deploy production</code>, and <a href="https://dev.up-example.com/">https://dev.up-example.com/</a> will point to the latest deployment via <code>up</code>.</p>
 
-<h3>Stack Changes</h3>
+<h3 id="stack_changes">Stack Changes</h3>
 
-<p>The &ldquo;stack&rdquo; is all of the resources associated with your app. You plan changes via <code>up stack plan</code> and perform them with <code>up stack apply</code>.</p>
+<p>The “stack” is all of the resources associated with your app. You plan changes via <code>up stack plan</code> and perform them with <code>up stack apply</code>.</p>
 
-<p>Suppose you wanted to map the &ldquo;staging&rdquo; stage, you would first add it to <code>up.json</code>:</p>
+<p>Suppose you wanted to map the “staging” stage, you would first add it to <code>up.json</code>:</p>
 
 <pre><code class="language-json">{
-  &quot;name&quot;: &quot;up-example&quot;,
-  &quot;profile&quot;: &quot;up-tobi&quot;,
-  &quot;stages&quot;: {
-    &quot;development&quot;: {
-      &quot;domain&quot;: &quot;dev.up-example.com&quot;
+  &#34;name&#34;: &#34;up-example&#34;,
+  &#34;profile&#34;: &#34;up-tobi&#34;,
+  &#34;stages&#34;: {
+    &#34;development&#34;: {
+      &#34;domain&#34;: &#34;dev.up-example.com&#34;
     },
-    &quot;staging&quot;: {
-      &quot;domain&quot;: &quot;stage.up-example.com&quot;
+    &#34;staging&#34;: {
+      &#34;domain&#34;: &#34;stage.up-example.com&#34;
     },
-    &quot;production&quot;: {
-      &quot;domain&quot;: &quot;up-example.com&quot;
+    &#34;production&#34;: {
+      &#34;domain&#34;: &#34;up-example.com&#34;
     }
   }
 }
@@ -1732,30 +1732,30 @@ Add AWS::Route53::RecordSet
 <pre><code>$ up stack plan
 </code></pre>
 
-<p>Review the output, it should be all &ldquo;Add&rdquo;s in this case, then apply:</p>
+<p>Review the output, it should be all “Add”s in this case, then apply:</p>
 
 <pre><code>$ up stack apply
 </code></pre>
 
-<h3>Deleting the App</h3>
+<h3 id="deleting_the_app">Deleting the App</h3>
 
-<p>After you&rsquo;re done messing around, you may want to remove all the resources and the app itself. To do so simply run:</p>
+<p>After you’re done messing around, you may want to remove all the resources and the app itself. To do so simply run:</p>
 
 <pre><code>$ up stack delete
 </code></pre>
 
-<h2>Logging</h2>
+<h2 id="logging">Logging</h2>
 
 <p>This section describes how you can log from you application in a way that Up will recognize. In the future Up will support forwarding your logs to services such as Loggly, Papertrail or ELK.</p>
 
-<h3>Plain Text</h3>
+<h3 id="plain_text">Plain Text</h3>
 
 <p>The first option is plain-text logs to stdout or stderr. Currently writes to stderr are considered ERROR-level logs, and stdout becomes INFO.</p>
 
 <p>Writing plain-text logs is simple, for example with Node.js:</p>
 
-<pre><code class="language-js">console.log('User signed in')
-console.error('Failed to sign in: %s', err)
+<pre><code class="language-js">console.log(&#39;User signed in&#39;)
+console.error(&#39;Failed to sign in: %s&#39;, err)
 </code></pre>
 
 <p>Would be collected as:</p>
@@ -1766,9 +1766,9 @@ ERROR: Failed to sign in: something broke
 
 <p>Multi-line indented logs are also supported, and are treated as a single message. For example:</p>
 
-<pre><code class="language-js">console.log('User signed in')
-console.log('  name: %s', user.name)
-console.log('  email: %s', user.email)
+<pre><code class="language-js">console.log(&#39;User signed in&#39;)
+console.log(&#39;  name: %s&#39;, user.name)
+console.log(&#39;  email: %s&#39;, user.email)
 </code></pre>
 
 <p>Would be collected as the single entry:</p>
@@ -1780,13 +1780,13 @@ console.log('  email: %s', user.email)
 
 <p>This feature is especially useful for stack traces.</p>
 
-<h3>JSON</h3>
+<h3 id="json">JSON</h3>
 
 <p>The second option is structured logging with JSON events, which is preferred as it allows you to query against specific fields and treat logs like events.</p>
 
 <p>JSON logs require a <code>level</code> and <code>message</code> field:</p>
 
-<pre><code class="language-js">console.log(`{ &quot;level&quot;: &quot;info&quot;, &quot;message&quot;: &quot;User signin&quot; }`)
+<pre><code class="language-js">console.log(`{ &#34;level&#34;: &#34;info&#34;, &#34;message&#34;: &#34;User signin&#34; }`)
 </code></pre>
 
 <p>Would be collected as:</p>
@@ -1796,7 +1796,7 @@ console.log('  email: %s', user.email)
 
 <p>The <code>message</code> field should typically contain no dynamic content, such as user names or emails, these can be provided as fields:</p>
 
-<pre><code class="language-js">console.log(`{ &quot;level&quot;: &quot;info&quot;, &quot;message&quot;: &quot;User login&quot;, &quot;fields&quot;: { &quot;name&quot;: &quot;Tobi&quot;, &quot;email&quot;: &quot;tobi@apex.sh&quot; } }`)
+<pre><code class="language-js">console.log(`{ &#34;level&#34;: &#34;info&#34;, &#34;message&#34;: &#34;User login&#34;, &#34;fields&#34;: { &#34;name&#34;: &#34;Tobi&#34;, &#34;email&#34;: &#34;tobi@apex.sh&#34; } }`)
 </code></pre>
 
 <p>Would be collected as:</p>
@@ -1806,15 +1806,15 @@ console.log('  email: %s', user.email)
 
 <p>Allowing you to perform queries such as:</p>
 
-<pre><code>$ up logs 'message = &quot;User login&quot; name = &quot;Tobi&quot;'
+<pre><code>$ up logs &#39;message = &#34;User login&#34; name = &#34;Tobi&#34;&#39;
 </code></pre>
 
 <p>Or:</p>
 
-<pre><code>$ up logs 'name = &quot;Tobi&quot; or email = &quot;tobi@*&quot;'
+<pre><code>$ up logs &#39;name = &#34;Tobi&#34; or email = &#34;tobi@*&#34;&#39;
 </code></pre>
 
-<p>Here&rsquo;s a simple JavaScript logger for reference, all you need to do is output some JSON to stdout and Up will handle the rest!</p>
+<p>Here’s a simple JavaScript logger for reference, all you need to do is output some JSON to stdout and Up will handle the rest!</p>
 
 <pre><code class="language-js">function log(level, message, fields = {}) {
   const entry = { level, message, fields }
@@ -1822,25 +1822,25 @@ console.log('  email: %s', user.email)
 }
 </code></pre>
 
-<h2>Log Query Language</h2>
+<h2 id="log_query_language">Log Query Language</h2>
 
 <p>Up supports a comprehensive query language, allowing you to perform complex filters against structured data, supporting operators, equality, substring tests and so on. This section details the options available when querying.</p>
 
-<h3>AND Operator</h3>
+<h3 id="and_operator">AND Operator</h3>
 
 <p>The <code>and</code> operator is implied, and entirely optional to specify, since this is the common case.</p>
 
 <p>Suppose you have the following example query to show only production errors from a the specified IP address.</p>
 
-<pre><code>production error ip = &quot;207.194.32.30&quot;
+<pre><code>production error ip = &#34;207.194.32.30&#34;
 </code></pre>
 
 <p>The parser will inject <code>and</code>, effectively compiling to:</p>
 
-<pre><code>production and error and ip = &quot;207.194.38.50&quot;
+<pre><code>production and error and ip = &#34;207.194.38.50&#34;
 </code></pre>
 
-<h3>Or Operator</h3>
+<h3 id="or_operator">Or Operator</h3>
 
 <p>There is of course also an <code>or</code> operator, for example showing warnings or errors.</p>
 
@@ -1849,37 +1849,37 @@ console.log('  email: %s', user.email)
 
 <p>These may of course be nested as you require:</p>
 
-<pre><code>(production or staging) (warn or error) method = &quot;GET&quot;
+<pre><code>(production or staging) (warn or error) method = &#34;GET&#34;
 </code></pre>
 
-<h3>Equality Operators</h3>
+<h3 id="equality_operators">Equality Operators</h3>
 
 <p>The <code>=</code> and <code>!=</code> equality operators allow you to filter on the contents of a field.</p>
 
 <p>Here <code>=</code> is used to show only GET requests:</p>
 
-<pre><code>method = &quot;GET&quot;
+<pre><code>method = &#34;GET&#34;
 </code></pre>
 
 <p>Or for example <code>!=</code> may be used to show anything except GET:</p>
 
-<pre><code>method != &quot;GET&quot;
+<pre><code>method != &#34;GET&#34;
 </code></pre>
 
-<h3>Relational Operators</h3>
+<h3 id="relational_operators">Relational Operators</h3>
 
 <p>The <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>, and <code>&lt;=</code> relational operators are useful for comparing numeric values, for example response status codes:</p>
 
 <pre><code>status &gt;= 200 status &lt; 300
 </code></pre>
 
-<h3>Stages</h3>
+<h3 id="stages">Stages</h3>
 
 <p>Currently all development, staging, and production logs are all stored in the same location, however you may filter to find exactly what you need.</p>
 
 <p>The keywords <code>production</code>, <code>staging</code>, and <code>development</code> expand to:</p>
 
-<pre><code>stage = &quot;production&quot;
+<pre><code>stage = &#34;production&#34;
 </code></pre>
 
 <p>For example filtering on slow production responses:</p>
@@ -1889,10 +1889,10 @@ console.log('  email: %s', user.email)
 
 <p>Is the same as:</p>
 
-<pre><code>stage = &quot;production&quot; duration &gt;= 1s
+<pre><code>stage = &#34;production&#34; duration &gt;= 1s
 </code></pre>
 
-<h3>Severity Levels</h3>
+<h3 id="severity_levels">Severity Levels</h3>
 
 <p>Up provides request level logging with severity levels applied automatically, for example a 5xx response is an ERROR level, while 4xx is a WARN, and 3xx or 2xx are the INFO level.</p>
 
@@ -1906,31 +1906,31 @@ console.log('  email: %s', user.email)
 <pre><code>production error
 </code></pre>
 
-<h3>In Operator</h3>
+<h3 id="in_operator">In Operator</h3>
 
 <p>The <code>in</code> operator checks for the presence of a field within the set provided. For example showing only POST, PUT and PATCH requests:</p>
 
-<pre><code>method in (&quot;POST&quot;, &quot;PUT&quot;, &quot;PATCH&quot;)
+<pre><code>method in (&#34;POST&#34;, &#34;PUT&#34;, &#34;PATCH&#34;)
 </code></pre>
 
-<h3>Not Operator</h3>
+<h3 id="not_operator">Not Operator</h3>
 
 <p>The <code>not</code> operator is a low-precedence negation operator, for example excluding requests with the method POST, PUT, or PATCH:</p>
 
-<pre><code>not method in (&quot;POST&quot;, &quot;PUT&quot;, &quot;PATCH&quot;)
+<pre><code>not method in (&#34;POST&#34;, &#34;PUT&#34;, &#34;PATCH&#34;)
 </code></pre>
 
-<p>Since it is the lowest precedence operator, the following will show messages that are not &ldquo;user login&rdquo; or &ldquo;user logout&rdquo;:</p>
+<p>Since it is the lowest precedence operator, the following will show messages that are not “user login” or “user logout”:</p>
 
-<pre><code>not message = &quot;user login&quot; or message = &quot;user logout&quot;
+<pre><code>not message = &#34;user login&#34; or message = &#34;user logout&#34;
 </code></pre>
 
 <p>Effectively compiling to:</p>
 
-<pre><code>!(message = &quot;user login&quot; or message = &quot;user logout&quot;)
+<pre><code>!(message = &#34;user login&#34; or message = &#34;user logout&#34;)
 </code></pre>
 
-<h3>Units</h3>
+<h3 id="units">Units</h3>
 
 <p>The log grammar supports units for bytes and durations, for example showing responses larger than 56kb:</p>
 
@@ -1957,86 +1957,86 @@ console.log('  email: %s', user.email)
 <li><code>s</code> seconds (<code>1.5s</code>, <code>5s</code>)</li>
 </ul>
 
-<h3>Substring Matches</h3>
+<h3 id="substring_matches">Substring Matches</h3>
 
 <p>When filtering on strings, such as the log message, you may use the <code>*</code> character for substring matches.</p>
 
 <p>For example if you want to show logs with a remote ip prefix of <code>207.</code>:</p>
 
-<pre><code>ip = &quot;207.*&quot;
+<pre><code>ip = &#34;207.*&#34;
 </code></pre>
 
-<p>Or a message containing the word &ldquo;login&rdquo;:</p>
+<p>Or a message containing the word “login”:</p>
 
-<pre><code>message = &quot;*login*&quot;
+<pre><code>message = &#34;*login*&#34;
 </code></pre>
 
 <p>There is also a special keyword for this case:</p>
 
-<pre><code>message contains &quot;login&quot;
+<pre><code>message contains &#34;login&#34;
 </code></pre>
 
               </div>
             
               <div class="Page" id="faq">
                 <h1>FAQ</h1>
-                <p><details>
+                <p></p><details>
   <summary>Is this a hosted service?</summary>
-  <p>There are currently no plans for a hosted version. Up lets you deploy applications to your own AWS account for isolation, security, and longevity, don&rsquo;t worry about a startup going out of business.</p>
-</details></p>
+  <p>There are currently no plans for a hosted version. Up lets you deploy applications to your own AWS account for isolation, security, and longevity, don’t worry about a startup going out of business.</p>
+</details><p></p>
 
-<p><details>
+<p></p><details>
   <summary>What platforms does Up support?</summary>
   <p>Currently AWS via API Gateway and Lambda are supported, this is the focus until Up is nearing feature completion, after which additional providers such as GCP and Azure will be added.</p>
-</details></p>
+</details><p></p>
 
-<p><details>
+<p></p><details>
   <summary>How is this different than other serverless frameworks?</summary>
-  <p>Most of the AWS Lambda based tools are function-oriented, while Up abstracts this away entirely. Up does not use framework &ldquo;shims&rdquo;, the servers that you run using Up are regular HTTP servers and require no code changes for Lambda compatibility.</p></p>
+  <p>Most of the AWS Lambda based tools are function-oriented, while Up abstracts this away entirely. Up does not use framework “shims”, the servers that you run using Up are regular HTTP servers and require no code changes for Lambda compatibility.</p><p></p>
 
-<p><p>Up keeps your apps and APIs portable, makes testing them locally easier, and prevents vendor lock-in. The Lambda support for Up is simply an implementation detail, you are not coupled to API Gateway or Lambda. Up uses the API Gateway proxy mode to send all requests (regardless of path or method) to your application.</p></p>
+<p></p><p>Up keeps your apps and APIs portable, makes testing them locally easier, and prevents vendor lock-in. The Lambda support for Up is simply an implementation detail, you are not coupled to API Gateway or Lambda. Up uses the API Gateway proxy mode to send all requests (regardless of path or method) to your application.</p><p></p>
 
-<p><p>If you&rsquo;re looking to manage function-level event processing pipelines, Apex or Serverless are likely better candidates, however if you&rsquo;re creating applications, apis, micro services, or websites, Up is built for you.</p>
-</details></p>
+<p></p><p>If you’re looking to manage function-level event processing pipelines, Apex or Serverless are likely better candidates, however if you’re creating applications, apis, micro services, or websites, Up is built for you.</p>
+</details><p></p>
 
-<p><details>
+<p></p><details>
   <summary>Why run HTTP servers in Lambda?</summary>
-  <p>You might be thinking this defeats the purpose of Lambda, however most people just want to use the tools they know and love. Up lets you be productive developing locally as you normally would, Lambda for hosting is only an implementation detail.</p></p>
+  <p>You might be thinking this defeats the purpose of Lambda, however most people just want to use the tools they know and love. Up lets you be productive developing locally as you normally would, Lambda for hosting is only an implementation detail.</p><p></p>
 
-<p><p>With Up you can use any Python, Node, Go, or Java framework you&rsquo;d normally use to develop, and deploy with a single command, while maintaining the cost effectiveness, self-healing, and scaling capabilities of Lambda.</p>
-</details></p>
+<p></p><p>With Up you can use any Python, Node, Go, or Java framework you’d normally use to develop, and deploy with a single command, while maintaining the cost effectiveness, self-healing, and scaling capabilities of Lambda.</p>
+</details><p></p>
 
-<p><details>
+<p></p><details>
   <summary>How much does it cost to run an application?</summary>
-  <p>AWS API Gateway provides 1 million free requests per month, so there&rsquo;s a good chance you won&rsquo;t have to pay anything at all. Beyond that view the <a href="https://aws.amazon.com/api-gateway/pricing/">AWS Pricing</a> for more information.</p>
-</details></p>
+  <p>AWS API Gateway provides 1 million free requests per month, so there’s a good chance you won’t have to pay anything at all. Beyond that view the <a href="https://aws.amazon.com/api-gateway/pricing/">AWS Pricing</a> for more information.</p>
+</details><p></p>
 
-<p><details>
+<p></p><details>
   <summary>How well does it scale?</summary>
-  <p>Up scales to fit your traffic on-demand, you don&rsquo;t have to do anything beyond deploying your code. There&rsquo;s no restriction on the number of concurrent instances, apps, custom domains and so on.</p>
-</details></p>
+  <p>Up scales to fit your traffic on-demand, you don’t have to do anything beyond deploying your code. There’s no restriction on the number of concurrent instances, apps, custom domains and so on.</p>
+</details><p></p>
 
-<p><details>
-  <summary>How much latency does Up&rsquo;s reverse proxy introduce?</summary>
+<p></p><details>
+  <summary>How much latency does Up’s reverse proxy introduce?</summary>
   <p>With a 512mb Lambda function Up introduces an average of around 500µs (microseconds) per request.</p>
-</details></p>
+</details><p></p>
 
-<p><details>
+<p></p><details>
   <summary>Do the servers stay active while idle?</summary>
-  <p>This depends on the platform, and with Lambda being the initial platform provided the current answer is no, the server(s) are frozen when inactive and are otherwise &ldquo;stateless&rdquo;.</p></p>
+  <p>This depends on the platform, and with Lambda being the initial platform provided the current answer is no, the server(s) are frozen when inactive and are otherwise “stateless”.</p><p></p>
 
-<p><p>Typically relying on background work in-process is an anti-pattern as it does not scale. Lambda functions combined with CloudWatch scheduled events for example are a good way to handle this kind of work, if you&rsquo;re looking for a scalable alternative.</p>
-</details></p>
+<p></p><p>Typically relying on background work in-process is an anti-pattern as it does not scale. Lambda functions combined with CloudWatch scheduled events for example are a good way to handle this kind of work, if you’re looking for a scalable alternative.</p>
+</details><p></p>
 
-<p><details>
+<p></p><details>
   <summary>Why is Up licensed as GPLv3?</summary>
   <p>Up is licensed in such a way that myself as an independent developer can continue to improve the product and provide support. Commercial customers receive access to a premium version of Up with additional features, priority support for bugfixes, and of course knowing that the project will stick around! Up saves your team countless hours maintaining infrastructure and custom tooling, so you can get back to what makes your company and products unique.</p>
-</details></p>
+</details><p></p>
 
-<p><details>
+<p></p><details>
   <summary>Can I donate?</summary>
-  <p>Yes you can! Head over to the <a href="https://opencollective.com/apex-up">OpenCollective</a> page. Any donations are greatly appreciated and help me focus more on Up&rsquo;s implementation, documentation, and examples. If you&rsquo;re using the free OSS version for personal or commercial use please consider giving back, even a few bucks buys a coffee :).</p>
-</details></p>
+  <p>Yes you can! Head over to the <a href="https://opencollective.com/apex-up">OpenCollective</a> page. Any donations are greatly appreciated and help me focus more on Up’s implementation, documentation, and examples. If you’re using the free OSS version for personal or commercial use please consider giving back, even a few bucks buys a coffee :).</p>
+</details><p></p>
 
               </div>
             
