@@ -108,7 +108,7 @@
 
 <p>If you hit permission issues, you may need to run the following, as <code>up</code> is installed to <code>/usr/local/bin/up</code> by default.</p>
 
-<pre><code>$ sudo chown -R $(whoami) /usr/local/
+<pre><code>$ sudo chown -R $(whoami) /usr/local/bin/
 </code></pre>
 
               </div>
@@ -168,6 +168,13 @@ aws_secret_access_key = xxxxxxxxxxxxxxxxxxxxxxxx
     {
       &quot;Action&quot;: [
         &quot;acm:*&quot;
+      ],
+      &quot;Effect&quot;: &quot;Allow&quot;,
+      &quot;Resource&quot;: &quot;*&quot;
+    },
+    {
+      &quot;Action&quot;: [
+        &quot;cloudfront:*&quot;
       ],
       &quot;Effect&quot;: &quot;Allow&quot;,
       &quot;Resource&quot;: &quot;*&quot;
@@ -833,54 +840,79 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 
 <p>Up allows you to configure DNS zones and records. One or more zones may be provided as keys in the <code>dns</code> object (&ldquo;myapp.com&rdquo; here), with a number of records defined within it.</p>
 
-<pre><code>{
-  &quot;name&quot;: &quot;app&quot;,
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;gh-polls&quot;,
   &quot;dns&quot;: {
-    &quot;myapp.com&quot;: [
+    &quot;gh-polls.com&quot;: [
       {
-        &quot;name&quot;: &quot;myapp.com&quot;,
-        &quot;type&quot;: &quot;A&quot;,
-        &quot;ttl&quot;: 300,
-        &quot;value&quot;: [&quot;35.161.83.243&quot;]
-      },
-      {
-        &quot;name&quot;: &quot;blog.myapp.com&quot;,
+        &quot;name&quot;: &quot;app.gh-polls.com&quot;,
         &quot;type&quot;: &quot;CNAME&quot;,
-        &quot;ttl&quot;: 300,
-        &quot;value&quot;: [&quot;34.209.172.67&quot;]
-      },
-      {
-        &quot;name&quot;: &quot;api.myapp.com&quot;,
-        &quot;type&quot;: &quot;A&quot;,
-        &quot;ttl&quot;: 300,
-        &quot;value&quot;: [&quot;54.187.185.18&quot;]
+        &quot;value&quot;: [&quot;gh-polls.netlify.com&quot;]
       }
     ]
   }
 }
 </code></pre>
 
-<h2>SSL Certificates</h2>
+<p>The record <code>type</code> must be one of:</p>
 
-<p>Up can provision free SSL certificates for your domains by providing a <code>certs</code> array, each with a domain and optional additional names such as <code>*.myapp.com</code> here or <code>api.myapp.com</code>.</p>
+<ul>
+<li>A</li>
+<li>AAAA</li>
+<li>CNAME</li>
+<li>MX</li>
+<li>NAPTR</li>
+<li>NS</li>
+<li>PTR</li>
+<li>SOA</li>
+<li>SPF</li>
+<li>SRV</li>
+<li>TXT</li>
+</ul>
 
-<pre><code class="language-son">{
-  &quot;name&quot;: &quot;app&quot;,
-  &quot;certs&quot;: [
-    {
-      &quot;domains&quot;: [&quot;myapp.com&quot;, &quot;*.myapp.com&quot;]
+<h2>Stages &amp; Custom Domains</h2>
+
+<p>Up supports per-stage configuration, such as mapping of custom domains. Stage configuration is optional, this example maps all three to sub-domains:</p>
+
+<pre><code class="language-json">{
+  &quot;stages&quot;: {
+    &quot;production&quot;: {
+      &quot;domain&quot;: &quot;api.gh-polls.com&quot;
+    },
+    &quot;staging&quot;: {
+      &quot;domain&quot;: &quot;stage.gh-polls.com&quot;
     }
-  ]
+    &quot;development&quot;: {
+      &quot;domain&quot;: &quot;dev.gh-polls.com&quot;
+    }
+  }
 }
 </code></pre>
 
-<p>Note that upon provisioning free SSL certificates AWS will send you a verification email to ensure that you own the domain name.</p>
+<p>This example maps only the production stage:</p>
 
-<p>You can read more about this process on the <a href="http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate.html">Validate Domain Ownership</a> page.</p>
+<pre><code class="language-json">{
+  &quot;stages&quot;: {
+    &quot;production&quot;: {
+      &quot;domain&quot;: &quot;gh-polls.com&quot;
+    }
+  }
+}
+</code></pre>
 
-<h2>Custom Domains</h2>
+<p>Plan the changes via <code>up stack plan</code> and <code>up stack apply</code> to perform the changes. Note that CloudFront can take 30-40 minutes to distribute this configuration globally, so be patient when applying these changes!</p>
 
-<p>Custom domain mapping is not <em>yet</em> supported. For now you can visit <code>/apigateway</code> in the AWS console, click &ldquo;Custom Domain Names&rdquo;, and map your stage(s). Note that Cloudfront can take up to 30 minutes to provision (unfortunately). Better solutions are coming.</p>
+<p>Custom stages may be supported in the future, for now there are three:</p>
+
+<ul>
+<li><code>development</code> – The latest deployment</li>
+<li><code>staging</code> – The latest deployment specific to &ldquo;staging&rdquo;</li>
+<li><code>production</code> – The latest deployment specific to &ldquo;production&rdquo;</li>
+</ul>
+
+<p>If you&rsquo;re familiar with AWS Lambda, &ldquo;development&rdquo; is the $LATEST version, while &ldquo;staging&rdquo; and &ldquo;production&rdquo; are aliases.</p>
+
+<p>You may purchase domains from the command-line, or map custom domains from other registrars. Up uses Route53 to purchase domains using your AWS account credit card. See <code>up help domains</code>.</p>
 
 <h2>Ignoring Files</h2>
 
@@ -1161,7 +1193,6 @@ Args:
   &quot;logs&quot;: {
     &quot;disable&quot;: false
   },
-  &quot;certs&quot;: null,
   &quot;dns&quot;: {
     &quot;zones&quot;: null
   }
@@ -1482,9 +1513,240 @@ Flags:
             
               <div class="Page" id="guides">
                 <h1>Guides</h1>
-                <h2>Logging</h2>
+                <h2>Development to Production Workflow</h2>
 
-<p>This description describes how you can log from you application in a way that Up will recognize. In the future Up will support forwarding your logs to services such as Loggly, Papertrail or ELK.</p>
+<p>This section guides you through taking a small application from development, to production, complete with purchasing and mapping a custom domain.</p>
+
+<h3>Deploying</h3>
+
+<p>First create <code>app.js</code> in an empty directory with the following Node.js app. Note that it must listen on <strong>PORT</strong> which is passed by Up.</p>
+
+<pre><code class="language-js">const http = require('http')
+const { PORT = 3000 } = process.env
+
+http.createServer((req, res) =&gt; {
+  res.end('Hello World\n')
+}).listen(PORT)
+</code></pre>
+
+<p>Next you should give your application a name and start configuring. The <code>profile</code> name should correspond with the name in <code>~/.aws/credentials</code> so that Up knows which AWS account to deploy to, and which credentials to use.</p>
+
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;up-example&quot;,
+  &quot;profile&quot;: &quot;up-tobi&quot;
+}
+</code></pre>
+
+<p>Run <code>up</code> to deploy the application.</p>
+
+<pre><code>$ up
+
+   build: 5 files, 3.9 MB (358ms)
+  deploy: complete (14.376s)
+   stack: complete (1m12.086s)
+</code></pre>
+
+<p>Test with <code>curl</code> to ensure everything is working:</p>
+
+<pre><code>$ curl `up url`
+Hello World
+</code></pre>
+
+<h3>Purchasing a Domain</h3>
+
+<p>Domains can be mapped from existing services, or purchased directly from AWS via Route53. First check if the domain you&rsquo;d like is available:</p>
+
+<pre><code>$ up domains check up.com
+
+  Domain up.com is unavailable
+
+  Suggestions:
+
+  theupwards.com          $12.00 USD
+  upwardonline.com        $12.00 USD
+  myupwards.com           $12.00 USD
+  theastir.com            $12.00 USD
+  astironline.com         $12.00 USD
+  myastir.com             $12.00 USD
+  myupward.net            $11.00 USD
+  cleanup.tv              $32.00 USD
+  myup.tv                 $32.00 USD
+  itup.tv                 $32.00 USD
+  newup.tv                $32.00 USD
+  thedown.net             $11.00 USD
+  theupward.net           $11.00 USD
+  upwardsonline.net       $11.00 USD
+</code></pre>
+
+<p>Oh no up.com is taken! Try another:</p>
+
+<pre><code>$ up domains check up-example.com
+
+  Domain up-example.com is available for $12.00 USD
+</code></pre>
+
+<p>Purchase it with the following command, and fill out the details required by the registrar.</p>
+
+<pre><code>$ up domains buy up-example.com
+
+  Confirm domain: up-example.com
+  First name: TJ
+  Last name: Holowaychuk
+  Email: tj@apex.sh
+  Phone: +1.2501007000
+  Country code: CA
+  City: Victoria
+  State or province: BC
+  Zip code: X9X 9X9
+  Address: Some address here
+</code></pre>
+
+<p>It can take a few minutes for AWS to finalize the purchase, you should receive an email, then you&rsquo;ll see it in the <code>up domains</code> output, along with the automatic renewal time.</p>
+
+<pre><code>$ up domains
+
+  gh-polls.com             renews Aug 28 17:17:58
+  up-example.com           renews Sep 19 19:40:50
+</code></pre>
+
+<h3>Deploying to Stages</h3>
+
+<p>Before deploying to the staging and production stages, first tweak the application a little to include the <code>UP_STAGE</code> environment variable:</p>
+
+<pre><code class="language-js">const http = require('http')
+const { PORT = 3000, UP_STAGE } = process.env
+
+http.createServer((req, res) =&gt; {
+  res.end('Hello World from ' + UP_STAGE)
+}).listen(PORT)
+</code></pre>
+
+<p>Now deploy to development and production. Note that <code>up</code> is an alias of <code>up deploy development</code>.</p>
+
+<pre><code>$ up
+$ up deploy production
+</code></pre>
+
+<p>Open both in the browser:</p>
+
+<pre><code>$ up url -o
+$ up url production -o
+</code></pre>
+
+<p>You should see &ldquo;Hello World from production&rdquo; and &ldquo;Hello World from development&rdquo;.</p>
+
+<h3>Mapping Custom Domains to Stages</h3>
+
+<p>Now that you have an application deployed, you probably want a fancy custom domain for it right? You can map these using the <code>stages</code> and <code>domain</code> properties.</p>
+
+<p>Here we let Up know that we want <code>up-example.com</code> for production and <code>dev.up-example</code> for development. You could also map staging to <code>stage.up-example.com</code> or similar if you&rsquo;d like.</p>
+
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;up-example&quot;,
+  &quot;profile&quot;: &quot;up-tobi&quot;,
+  &quot;stages&quot;: {
+    &quot;development&quot;: {
+      &quot;domain&quot;: &quot;dev.up-example.com&quot;
+    },
+    &quot;production&quot;: {
+      &quot;domain&quot;: &quot;up-example.com&quot;
+    }
+  }
+}
+</code></pre>
+
+<p>Note that you could map staging to a domain like <code>staging-myapp.com</code> as well, it does not have to be a sub-domain of your production domain.</p>
+
+<p>Now when you run <code>up stack plan</code> to preview changes to your resources, it will prompt you to verify the Let&rsquo;s Encrypt certificate emails that AWS sends.</p>
+
+<pre><code>$ up stack plan
+
+       domains: Verify your email
+     ⠧ confirm: up-example.com
+</code></pre>
+
+<p>AWS requires email verification to prove you own the domain. After clicking &ldquo;I Approve&rdquo; in the email, the output will resume and you&rsquo;ll see some new resources Up will be creating.</p>
+
+<pre><code>Add AWS::ApiGateway::DomainName
+  id: ApiDomainDevelopment
+
+Add AWS::ApiGateway::BasePathMapping
+  id: ApiDomainDevelopmentPathMapping
+
+Add AWS::ApiGateway::DomainName
+  id: ApiDomainProduction
+
+Add AWS::ApiGateway::BasePathMapping
+  id: ApiDomainProductionPathMapping
+
+Add AWS::Route53::RecordSet
+  id: DnsZoneDevUpExampleComRecordDevUpExampleCom
+
+Add AWS::Route53::RecordSet
+  id: DnsZoneUpExampleComRecordUpExampleCom
+</code></pre>
+
+<p>If you&rsquo;re curious, now that Up knows you want to map the domain(s), it will create:</p>
+
+<ul>
+<li>Registers ACM free SSL certificate(s) for your domain(s)</li>
+<li>CloudFront distribution for the API Gateway</li>
+<li>API Gateway stage mapping</li>
+<li>Route53 DNS zone and record(s) mapping to the CloudFront distribution</li>
+</ul>
+
+<p>Now apply these changes:</p>
+
+<pre><code>$ up stack apply
+</code></pre>
+
+<p>After the changes have been applied, it can take roughly 10-40 minutes for CloudFront to distribute the configuration and SSL certificate globally, so until then our up-example.com domain won&rsquo;t work.</p>
+
+<p>Once available <a href="https://up-example.com">https://up-example.com</a> will always point to production via <code>up deploy production</code>, and <a href="https://dev.up-example.com/">https://dev.up-example.com/</a> will point to the latest deployment via <code>up</code>.</p>
+
+<h3>Stack Changes</h3>
+
+<p>The &ldquo;stack&rdquo; is all of the resources associated with your app. You plan changes via <code>up stack plan</code> and perform them with <code>up stack apply</code>.</p>
+
+<p>Suppose you wanted to map the &ldquo;staging&rdquo; stage, you would first add it to <code>up.json</code>:</p>
+
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;up-example&quot;,
+  &quot;profile&quot;: &quot;up-tobi&quot;,
+  &quot;stages&quot;: {
+    &quot;development&quot;: {
+      &quot;domain&quot;: &quot;dev.up-example.com&quot;
+    },
+    &quot;staging&quot;: {
+      &quot;domain&quot;: &quot;stage.up-example.com&quot;
+    },
+    &quot;production&quot;: {
+      &quot;domain&quot;: &quot;up-example.com&quot;
+    }
+  }
+}
+</code></pre>
+
+<p>Then run:</p>
+
+<pre><code>$ up stack plan
+</code></pre>
+
+<p>Review the output, it should be all &ldquo;Add&rdquo;s in this case, then apply:</p>
+
+<pre><code>$ up stack apply
+</code></pre>
+
+<h3>Deleting the App</h3>
+
+<p>After you&rsquo;re done messing around, you may want to remove all the resources and the app itself. To do so simply run:</p>
+
+<pre><code>$ up stack delete
+</code></pre>
+
+<h2>Logging</h2>
+
+<p>This section describes how you can log from you application in a way that Up will recognize. In the future Up will support forwarding your logs to services such as Loggly, Papertrail or ELK.</p>
 
 <h3>Plain Text</h3>
 
@@ -1732,15 +1994,16 @@ console.log('  email: %s', user.email)
   <summary>How is this different than other serverless frameworks?</summary>
   <p>Most of the AWS Lambda based tools are function-oriented, while Up abstracts this away entirely. Up does not use framework &ldquo;shims&rdquo;, the servers that you run using Up are regular HTTP servers and require no code changes for Lambda compatibility.</p></p>
 
-<p><p>Up keeps your apps and APIs portable, makes testing them locally easier, and prevents vendor lock-in. The Lambda support for Up is simply an implementation detail, you are not coupled to API Gateway or Lambda.</p></p>
+<p><p>Up keeps your apps and APIs portable, makes testing them locally easier, and prevents vendor lock-in. The Lambda support for Up is simply an implementation detail, you are not coupled to API Gateway or Lambda. Up uses the API Gateway proxy mode to send all requests (regardless of path or method) to your application.</p></p>
 
 <p><p>If you&rsquo;re looking to manage function-level event processing pipelines, Apex or Serverless are likely better candidates, however if you&rsquo;re creating applications, apis, micro services, or websites, Up is built for you.</p>
 </details></p>
 
 <p><details>
   <summary>Why run HTTP servers in Lambda?</summary>
-  <p>You might be thinking this defeats the purpose of Lambda, however most people just want to use the tools they know and love. Up lets you be productive developing locally as you normally would, Lambda for hosting is only an implementation detail.</p>
-  <p>With Up you can use any Python, Node, Go, or Java framework you&rsquo;d normally use to develop, and deploy with a single command, while maintaining the cost effectiveness, self-healing, and scaling capabilities of Lambda.</p>
+  <p>You might be thinking this defeats the purpose of Lambda, however most people just want to use the tools they know and love. Up lets you be productive developing locally as you normally would, Lambda for hosting is only an implementation detail.</p></p>
+
+<p><p>With Up you can use any Python, Node, Go, or Java framework you&rsquo;d normally use to develop, and deploy with a single command, while maintaining the cost effectiveness, self-healing, and scaling capabilities of Lambda.</p>
 </details></p>
 
 <p><details>
@@ -1749,7 +2012,7 @@ console.log('  email: %s', user.email)
 </details></p>
 
 <p><details>
-  <summary>How does it scale?</summary>
+  <summary>How well does it scale?</summary>
   <p>Up scales to fit your traffic on-demand, you don&rsquo;t have to do anything beyond deploying your code. There&rsquo;s no restriction on the number of concurrent instances, apps, custom domains and so on.</p>
 </details></p>
 
