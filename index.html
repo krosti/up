@@ -804,7 +804,7 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 
 <h3 id="crash_recovery">Crash Recovery</h3>
 
-<p>Another benefit of using Up as a reverse proxy is performing crash recovery, restarting your server upon crashing and re-attempting the request before responding to the client with an error.</p>
+<p>Another benefit of using Up as a reverse proxy is performing crash recovery. Up will retry idempotent requests upon failure, and upon crash it will restart your server and re-attempt before responding to the client.</p>
 
 <p>By default the back-off is configured as:</p>
 
@@ -900,7 +900,7 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 }
 </code></pre>
 
-<p>Plan the changes via <code>up stack plan</code> and <code>up stack apply</code> to perform the changes. Note that CloudFront can take 30-40 minutes to distribute this configuration globally, so be patient when applying these changes!</p>
+<p>Plan the changes via <code>up stack plan</code> and <code>up stack apply</code> to perform the changes. Note that CloudFront can take up to ~40 minutes to distribute this configuration globally, so grab a coffee while these changes are applied.</p>
 
 <p>Custom stages may be supported in the future, for now there are three:</p>
 
@@ -912,7 +912,7 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 
 <p>If you’re familiar with AWS Lambda, “development” is the $LATEST version, while “staging” and “production” are aliases.</p>
 
-<p>You may purchase domains from the command-line, or map custom domains from other registrars. Up uses Route53 to purchase domains using your AWS account credit card. See <code>up help domains</code>.</p>
+<p>You may <a href="#purchasing_a_domain">purchase domains</a> from the command-line, or map custom domains from other registrars. Up uses Route53 to purchase domains using your AWS account credit card. See <code>up help domains</code>.</p>
 
 <h2 id="ignoring_files">Ignoring Files</h2>
 
