@@ -277,6 +277,16 @@ details > p {
   line-height: 2rem;
 }
 
+.Anchor:hover,
+.Heading:hover .Anchor {
+  opacity: 1;
+}
+
+.Anchor {
+  margin-left: -20px;
+  opacity: 0.15;
+}
+
 .Footer {
   height: 100px;
 }

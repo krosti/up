@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html><html><head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Up | Deploy serverless apps in seconds</title>
-    <link rel="stylesheet" href="theme/apex/css/index.css">
+    <link rel="stylesheet" href="theme/apex/css/index.css"/>
     <script>
   !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="4.0.0";
   analytics.load("ZFVGRrYQ0ZDLAHdPRyNJu9xkmtEtdPyD");
@@ -73,7 +71,9 @@
           <div class="Content">
             
               <div class="Page" id="introduction">
-                <h1>Introduction</h1>
+                <h1 class="Heading"><a class="Anchor" aria-hidden="true" id="Introduction__introduction" href="#Introduction__introduction">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Introduction</h1>
                 <p>Up deploys infinitely scalable serverless apps, APIs, and static websites in seconds, so you can get back to working on what makes your product unique.</p>
 
 <p>Up focuses on deploying “vanilla” HTTP servers so there’s nothing new to learn, just develop with your favorite existing frameworks such as Express, Koa, Django, Golang net/http or others.</p>
@@ -83,7 +83,9 @@
               </div>
             
               <div class="Page" id="installation">
-                <h1>Installation</h1>
+                <h1 class="Heading"><a class="Anchor" aria-hidden="true" id="Installation__installation" href="#Installation__installation">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Installation</h1>
                 <p>Up is distributed in a binary form and can be installed manually via the <a href="https://github.com/apex/up/releases">tarball releases</a> or one of the options below.</p>
 
 <p>The quickest way to get <code>up</code> is to run the following command, which installs to to <code>/usr/local/bin</code> by default.</p>
@@ -114,10 +116,14 @@
               </div>
             
               <div class="Page" id="aws_credentials">
-                <h1>AWS Credentials</h1>
+                <h1 class="Heading"><a class="Anchor" aria-hidden="true" id="AWS Credentials__aws_credentials" href="#AWS Credentials__aws_credentials">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>AWS Credentials</h1>
                 <p>Before using Up you need to first provide your AWS account credentials so that resources can be created. There are a number of ways to do that, which are outlined here.</p>
 
-<h2 id="via_environment_variables">Via environment variables</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="AWS Credentials__via_environment_variables" href="#AWS Credentials__via_environment_variables">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Via environment variables</h2>
 
 <p>Using environment variables only, you may specify the following:</p>
 
@@ -130,7 +136,9 @@
 <p>If you have multiple AWS projects you may want to consider using a tool such as <a href="http://direnv.net/">direnv</a> to localize and automatically set the variables when
 you’re working on a project.</p>
 
-<h2 id="via_aws_files">Via ~/.aws files</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="AWS Credentials__via_aws_files" href="#AWS Credentials__via_aws_files">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Via ~/.aws files</h2>
 
 <p>Using the <code>~/.aws/credentials</code> file to store credentials, allowing you to specify <code>AWS_PROFILE</code> so Up knows which project to reference. To read more on configuring these files view <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html">Configuring the AWS CLI</a>.</p>
 
@@ -141,7 +149,9 @@ aws_access_key_id = xxxxxxxx
 aws_secret_access_key = xxxxxxxxxxxxxxxxxxxxxxxx
 </code></pre>
 
-<h2 id="via_project_configuration">Via project configuration</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="AWS Credentials__via_project_configuration" href="#AWS Credentials__via_project_configuration">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Via project configuration</h2>
 
 <p>You may store the profile name in the <code>up.json</code> file itself as shown in the following snippet. This is typically ideal since it ensures that you do not accidentally have a different environment set.</p>
 
@@ -150,7 +160,9 @@ aws_secret_access_key = xxxxxxxxxxxxxxxxxxxxxxxx
 }
 </code></pre>
 
-<h2 id="iam_policy_for_up_cli">IAM Policy for Up CLI</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="AWS Credentials__iam_policy_for_up_cli" href="#AWS Credentials__iam_policy_for_up_cli">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>IAM Policy for Up CLI</h2>
 
 <p>Below is a policy for <a href="https://aws.amazon.com/iam/">AWS Identity and Access Management</a> which provides Up access to manage your resources.</p>
 
@@ -254,7 +266,9 @@ aws_secret_access_key = xxxxxxxxxxxxxxxxxxxxxxxx
               </div>
             
               <div class="Page" id="getting_started">
-                <h1>Getting Started</h1>
+                <h1 class="Heading"><a class="Anchor" aria-hidden="true" id="Getting Started__getting_started" href="#Getting Started__getting_started">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Getting Started</h1>
                 <p>The simplest Up application is a single file for the application itself, with zero dependencies.</p>
 
 <p>Up runs “vanilla” HTTP servers listening on the <code>PORT</code> environment variable, which is passed to your program by Up. For example create a new directory with the following <code>app.js</code> file:</p>
@@ -355,10 +369,14 @@ server.listen
               </div>
             
               <div class="Page" id="configuration">
-                <h1>Configuration</h1>
+                <h1 class="Heading"><a class="Anchor" aria-hidden="true" id="Configuration__configuration" href="#Configuration__configuration">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Configuration</h1>
                 <p>Configuration for your app lives in the <code>up.json</code> within your project’s directory. This section details each of the options available.</p>
 
-<h2 id="name">Name</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="Configuration__name" href="#Configuration__name">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Name</h2>
 
 <p>The name of the application, which is used to name resources such as the Lambda function or API Gateway. By default this is the directory name.</p>
 
@@ -367,7 +385,9 @@ server.listen
 }
 </code></pre>
 
-<h2 id="profile">Profile</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="Configuration__profile" href="#Configuration__profile">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Profile</h2>
 
 <p>The <code>profile</code> property is equivalent to setting <code>AWS_PROFILE</code> for referencing AWS credentials in the <code>~/.aws</code> directory. Use of this property is preferred it prevents accidents with environment variables.</p>
 
@@ -376,7 +396,9 @@ server.listen
 }
 </code></pre>
 
-<h2 id="regions">Regions</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="Configuration__regions" href="#Configuration__regions">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Regions</h2>
 
 <p>You may specify one or more target regions for deployment using the <code>regions</code> array. Glob style patterns may be used to match region ids. By default “us-west-2” is used unless the <code>AWS_REGION</code> environment variable is defined.</p>
 
@@ -436,7 +458,9 @@ server.listen
 
 <p><strong>WARNING</strong>: multi-region support won’t be complete until <a href="https://github.com/apex/up/issues/134">https://github.com/apex/up/issues/134</a> is closed.</p>
 
-<h2 id="lambda_settings">Lambda Settings</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="Configuration__lambda_settings" href="#Configuration__lambda_settings">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Lambda Settings</h2>
 
 <p>The following Lambda-specific settings are available:</p>
 
@@ -459,7 +483,9 @@ server.listen
 
 <p>View the <a href="https://aws.amazon.com/lambda/pricing/">Lambda Pricing</a> page for more information regarding the <code>memory</code> setting.</p>
 
-<h2 id="hook_scripts">Hook Scripts</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="Configuration__hook_scripts" href="#Configuration__hook_scripts">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Hook Scripts</h2>
 
 <p>Up provides “hooks” which are commands invoked at certain points within the the deployment workflow for automating builds, linting and so on. The following hooks are available:</p>
 
@@ -496,7 +522,9 @@ server.listen
 }
 </code></pre>
 
-<h2 id="static_file_serving">Static File Serving</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="Configuration__static_file_serving" href="#Configuration__static_file_serving">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Static File Serving</h2>
 
 <p>Up ships with a robust static file server, to enable it specify the app <code>type</code> as <code>&#34;static&#34;</code>.</p>
 
@@ -517,7 +545,9 @@ server.listen
 
 </code></pre>
 
-<h2 id="environment_variables">Environment Variables</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="Configuration__environment_variables" href="#Configuration__environment_variables">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Environment Variables</h2>
 
 <p>The <code>environment</code> object may be used for plain-text environment variables. Note that these are not encrypted, and are stored in up.json which is typically committed to GIT, so do not store secrets here.</p>
 
@@ -538,7 +568,9 @@ server.listen
 <li><code>PORT</code> – port number such as “3000”</li>
 </ul>
 
-<h2 id="header_injection">Header Injection</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="Configuration__header_injection" href="#Configuration__header_injection">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Header Injection</h2>
 
 <p>The <code>headers</code> object allows you to map HTTP header fields to paths. The most specific pattern takes precedence.</p>
 
@@ -582,7 +614,9 @@ X-Something-Else: I am applied to styles
 Date: Mon, 31 Jul 2017 20:49:35 GMT
 </code></pre>
 
-<h2 id="error_pages">Error Pages</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="Configuration__error_pages" href="#Configuration__error_pages">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Error Pages</h2>
 
 <p>By default Up will serve a minimalistic error page for you if the client accepts <code>text/html</code>, and it is explicitly enabled.</p>
 
@@ -630,7 +664,9 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 &lt;/html&gt;
 </code></pre>
 
-<h2 id="script_injection">Script Injection</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="Configuration__script_injection" href="#Configuration__script_injection">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Script Injection</h2>
 
 <p>Scripts, styles, and other tags may be injected to HTML pages before the closing <code>&lt;/head&gt;</code> tag or closing <code>&lt;/body&gt;</code> tag.</p>
 
@@ -687,7 +723,9 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 <li><code>{ &#34;type&#34;: &#34;segment&#34;, &#34;value&#34;: &#34;API_KEY&#34; }</code></li>
 </ul>
 
-<h2 id="redirects_and_rewrites">Redirects and Rewrites</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="Configuration__redirects_and_rewrites" href="#Configuration__redirects_and_rewrites">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Redirects and Rewrites</h2>
 
 <p>Up supports redirects and URL rewriting via the <code>redirects</code> object, which maps path patterns to a new location. If <code>status</code> is omitted (or 200) then it is a rewrite, otherwise it is a redirect.</p>
 
@@ -743,7 +781,9 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 
 <p>Note that more specific target paths take precedence over those which are less specific, for example <code>/blog</code> will win over and <code>/*</code>.</p>
 
-<h2 id="cross_origin_resource_sharing">Cross-Origin Resource Sharing</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="Configuration__cross_origin_resource_sharing" href="#Configuration__cross_origin_resource_sharing">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Cross-Origin Resource Sharing</h2>
 
 <p>CORS is a mechanism which allows requests originating from a different host to make requests to your API. Several options are available to restrict this access, however to enable CORS for everyone all you need is to add:</p>
 
@@ -774,7 +814,9 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 <li><code>allow_credentials</code> – A boolean indicating whether the request can include user credentials such as cookies, HTTP authentication or client side SSL certificates. Defaults to true.</li>
 </ul>
 
-<h2 id="reverse_proxy">Reverse Proxy</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="Configuration__reverse_proxy" href="#Configuration__reverse_proxy">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Reverse Proxy</h2>
 
 <p>Up acts as a reverse proxy in front of your server, this is how CORS, redirection, script injection and other middleware style features are provided.</p>
 
@@ -802,7 +844,9 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 }
 </code></pre>
 
-<h3 id="crash_recovery">Crash Recovery</h3>
+<h3 class="Heading"><a class="Anchor" aria-hidden="true" id="Configuration__crash_recovery" href="#Configuration__crash_recovery">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Crash Recovery</h3>
 
 <p>Another benefit of using Up as a reverse proxy is performing crash recovery. Up will retry idempotent requests upon failure, and upon crash it will restart your server and re-attempt before responding to the client.</p>
 
@@ -836,7 +880,9 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 
 <p>Since Up’s purpose is to proxy your http traffic, Up will treat network errors as a crash.  When Up detects this, it will allow the server to cleanly close by sending a SIGINT, it the server does not close within <code>proxy.shutdown_timeout</code> seconds, it will forcibly close it with a SIGKILL.</p>
 
-<h2 id="dns_zones_records">DNS Zones &amp; Records</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="Configuration__dns_zones_records" href="#Configuration__dns_zones_records">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>DNS Zones &amp; Records</h2>
 
 <p>Up allows you to configure DNS zones and records. One or more zones may be provided as keys in the <code>dns</code> object (“myapp.com” here), with a number of records defined within it.</p>
 
@@ -870,7 +916,9 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 <li>TXT</li>
 </ul>
 
-<h2 id="stages_custom_domains">Stages &amp; Custom Domains</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="Configuration__stages_custom_domains" href="#Configuration__stages_custom_domains">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Stages &amp; Custom Domains</h2>
 
 <p>Up supports per-stage configuration, such as mapping of custom domains. Stage configuration is optional, this example maps all three to sub-domains:</p>
 
@@ -914,7 +962,9 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 
 <p>You may <a href="#purchasing_a_domain">purchase domains</a> from the command-line, or map custom domains from other registrars. Up uses Route53 to purchase domains using your AWS account credit card. See <code>up help domains</code>.</p>
 
-<h2 id="ignoring_files">Ignoring Files</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="Configuration__ignoring_files" href="#Configuration__ignoring_files">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Ignoring Files</h2>
 
 <p>Up supports gitignore style pattern matching for omitting files from deployment. The following files are loaded in sequence:</p>
 
@@ -929,7 +979,9 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 *.go
 </code></pre>
 
-<h3 id="negation">Negation</h3>
+<h3 class="Heading"><a class="Anchor" aria-hidden="true" id="Configuration__negation" href="#Configuration__negation">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Negation</h3>
 
 <p>By default dotfiles are ignored, if you wish to include them, you may use <code>!</code> to negate a pattern in <code>.upignore</code>:</p>
 
@@ -945,7 +997,9 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 !src/**
 </code></pre>
 
-<h3 id="inspecting">Inspecting</h3>
+<h3 class="Heading"><a class="Anchor" aria-hidden="true" id="Configuration__inspecting" href="#Configuration__inspecting">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Inspecting</h3>
 
 <p>To get a better idea of which files are being filtered or added, use <code>up -v</code> when deploying, and you may also find it useful to <code>grep</code> in some cases:</p>
 
@@ -961,7 +1015,9 @@ DEBU filtered node_modules/chalk/readme.md – 6136
 
 <p>You may also wish to use <code>up build --size</code> to view the largest files within the zip.</p>
 
-<h3 id="node_specifics">Node specifics</h3>
+<h3 class="Heading"><a class="Anchor" aria-hidden="true" id="Configuration__node_specifics" href="#Configuration__node_specifics">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Node specifics</h3>
 
 <p>When building a Node project, <code>node_modules</code> is often added to <code>.gitignore</code>, so Up special-cases this scenario so that <code>node_modules</code> is not excluded by default.</p>
 
@@ -970,7 +1026,9 @@ DEBU filtered node_modules/chalk/readme.md – 6136
 <pre><code>node_modules
 </code></pre>
 
-<h3 id="pattern_matching">Pattern matching</h3>
+<h3 class="Heading"><a class="Anchor" aria-hidden="true" id="Configuration__pattern_matching" href="#Configuration__pattern_matching">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Pattern matching</h3>
 
 <p>Note that patterns are matched much like <code>.gitignore</code>, so if you have the following <code>.upignore</code> contents even <code>node_modules/debug/src/index.js</code> will be ignored since it contains <code>src</code>.</p>
 
@@ -991,7 +1049,9 @@ DEBU filtered node_modules/chalk/readme.md – 6136
               </div>
             
               <div class="Page" id="runtimes">
-                <h1>Runtimes</h1>
+                <h1 class="Heading"><a class="Anchor" aria-hidden="true" id="Runtimes__runtimes" href="#Runtimes__runtimes">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Runtimes</h1>
                 <p>Up supports a number of interpreted languages, and virtually any language which can be compiled to a binary such as Golang. Up does its best to provide idiomatic and useful out-of-the-box experiences tailored to each language. Currently first-class support is provided for:</p>
 
 <ul>
@@ -1002,7 +1062,9 @@ DEBU filtered node_modules/chalk/readme.md – 6136
 <li>Static sites</li>
 </ul>
 
-<h2 id="node_js">Node.js</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="Runtimes__node_js" href="#Runtimes__node_js">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Node.js</h2>
 
 <p>When a <code>package.json</code> file is detected, Node.js is the assumed runtime. By default the latest version supported by Lambda is used (6.10). If you’d like to deploy other versions of Node you may want to consider using the <a href="https://github.com/apex/up-examples/tree/master/oss/node-8">Node binaries</a>.</p>
 
@@ -1016,7 +1078,9 @@ DEBU filtered node_modules/chalk/readme.md – 6136
 <pre><code>$ npm start
 </code></pre>
 
-<h2 id="python">Python</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="Runtimes__python" href="#Runtimes__python">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Python</h2>
 
 <p>When requirements.txt is present the build command becomes:</p>
 
@@ -1028,7 +1092,9 @@ DEBU filtered node_modules/chalk/readme.md – 6136
 <pre><code>$ python app.py
 </code></pre>
 
-<h2 id="golang">Golang</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="Runtimes__golang" href="#Runtimes__golang">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Golang</h2>
 
 <p>When a <code>main.go</code> file is detected, Golang is the assumed runtime.</p>
 
@@ -1042,7 +1108,9 @@ DEBU filtered node_modules/chalk/readme.md – 6136
 <pre><code>$ rm server
 </code></pre>
 
-<h2 id="crystal">Crystal</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="Runtimes__crystal" href="#Runtimes__crystal">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Crystal</h2>
 
 <p>When a <code>main.cr</code> file is detected, Crystal is the assumed runtime. Note that this runtime requires Docker to be installed.</p>
 
@@ -1056,14 +1124,18 @@ DEBU filtered node_modules/chalk/readme.md – 6136
 <pre><code>$ rm server
 </code></pre>
 
-<h2 id="static">Static</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="Runtimes__static" href="#Runtimes__static">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Static</h2>
 
 <p>When an <code>index.html</code> file is detected the project is assumed to be static.</p>
 
               </div>
             
               <div class="Page" id="commands">
-                <h1>Commands</h1>
+                <h1 class="Heading"><a class="Anchor" aria-hidden="true" id="Commands__commands" href="#Commands__commands">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Commands</h1>
                 <p>Up provides the <code>up</code> command-line program, used to deploy the app, and manage associated resources such as domains and SSL certificates, as well as operational tasks like viewing logs.</p>
 
 <p>To view details for a command at any time use <code>up help</code> or <code>up help &lt;command&gt;</code>.</p>
@@ -1102,7 +1174,9 @@ Commands:
   version         Show version.
 </code></pre>
 
-<h2 id="deploy">Deploy</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="Commands__deploy" href="#Commands__deploy">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Deploy</h2>
 
 <p>Deploy the project, by default to the “development” stage. Note that running <code>up</code> and <code>up deploy</code> are identical, however for staging and production you must run <code>up deploy &lt;stage&gt;</code>.</p>
 
@@ -1123,7 +1197,9 @@ Args:
   [&lt;stage&gt;]  Target stage name.
 </code></pre>
 
-<h3 id="examples">Examples</h3>
+<h3 class="Heading"><a class="Anchor" aria-hidden="true" id="Commands__examples" href="#Commands__examples">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Examples</h3>
 
 <p>Deploy the project to the development stage.</p>
 
@@ -1145,7 +1221,9 @@ Args:
 <pre><code>$ up deploy production
 </code></pre>
 
-<h2 id="config">Config</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="Commands__config" href="#Commands__config">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Config</h2>
 
 <p>Validate and output configuration with defaults applied.</p>
 
@@ -1200,7 +1278,9 @@ Args:
 ...
 </code></pre>
 
-<h2 id="logs">Logs</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="Commands__logs" href="#Commands__logs">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Logs</h2>
 
 <p>Show or tail log output with optional query for filtering. When viewing or tailing logs, you are viewing them from <em>all</em> stages, see the examples below to filter on a stage name.</p>
 
@@ -1222,7 +1302,9 @@ Args:
    [&lt;query&gt;]  Query pattern for filtering logs.
 </code></pre>
 
-<h3 id="json_output">JSON Output</h3>
+<h3 class="Heading"><a class="Anchor" aria-hidden="true" id="Commands__json_output" href="#Commands__json_output">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>JSON Output</h3>
 
 <p>When stdout is not a terminal Up will output the logs as JSON, which can be useful for further processing with tools such as <a href="https://stedolan.github.io/jq/">jq</a>.</p>
 
@@ -1238,7 +1320,9 @@ Args:
 &#34;GET&#34;,&#34;207.194.34.24&#34;
 </code></pre>
 
-<h3 id="examples">Examples</h3>
+<h3 class="Heading"><a class="Anchor" aria-hidden="true" id="Commands__examples" href="#Commands__examples">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Examples</h3>
 
 <p>Show logs from the past 5 minutes.</p>
 
@@ -1335,7 +1419,9 @@ Args:
 <pre><code>$ up logs &#39;method in (&#34;POST&#34;, &#34;PUT&#34;) ip = &#34;207.*&#34; status = 200 duration &gt;= 50&#39;
 </code></pre>
 
-<h2 id="url">URL</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="Commands__url" href="#Commands__url">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>URL</h2>
 
 <p>Show, open, or copy a stage endpoint.</p>
 
@@ -1358,7 +1444,9 @@ Args:
   [&lt;stage&gt;]  Name of the stage.
 </code></pre>
 
-<h3 id="examples">Examples</h3>
+<h3 class="Heading"><a class="Anchor" aria-hidden="true" id="Commands__examples" href="#Commands__examples">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Examples</h3>
 
 <p>Show the development endpoint.</p>
 
@@ -1390,7 +1478,9 @@ Args:
 <pre><code>$ up url -c production
 </code></pre>
 
-<h2 id="start">Start</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="Commands__start" href="#Commands__start">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Start</h2>
 
 <p>Start development server. The development server runs the same proxy that is used in production for serving, so you can test a static site or application locally with the same feature-set.</p>
 
@@ -1410,7 +1500,9 @@ Flags:
       --address=&#34;:3000&#34;  Address for server.
 </code></pre>
 
-<h3 id="examples">Examples</h3>
+<h3 class="Heading"><a class="Anchor" aria-hidden="true" id="Commands__examples" href="#Commands__examples">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Examples</h3>
 
 <p>Start development server on port 3000.</p>
 
@@ -1422,7 +1514,9 @@ Flags:
 <pre><code>$ up start --address :5000
 </code></pre>
 
-<h2 id="stack">Stack</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="Commands__stack" href="#Commands__stack">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Stack</h2>
 
 <p>Stack resource management. The stack is essentially all of the resources powering your app, which is configured by Up on the first deploy.</p>
 
@@ -1447,7 +1541,9 @@ Subcommands:
   stack status    Show status of resources.
 </code></pre>
 
-<h3 id="examples">Examples</h3>
+<h3 class="Heading"><a class="Anchor" aria-hidden="true" id="Commands__examples" href="#Commands__examples">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Examples</h3>
 
 <p>Show status of the stack resources.</p>
 
@@ -1469,7 +1565,9 @@ Subcommands:
 <pre><code>$ up stack delete
 </code></pre>
 
-<h2 id="build">Build</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="Commands__build" href="#Commands__build">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Build</h2>
 
 <p>Build zip file, typically only helpful for inspecting its contents. If you’re interested in seeing what files are causing bloat, use the <code>--size</code> flag to list files by size descending.</p>
 
@@ -1487,7 +1585,9 @@ Flags:
       --size           Show zip contents size information.
 </code></pre>
 
-<h3 id="examples">Examples</h3>
+<h3 class="Heading"><a class="Anchor" aria-hidden="true" id="Commands__examples" href="#Commands__examples">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Examples</h3>
 
 <p>Build archive and save to ./out.zip</p>
 
@@ -1512,12 +1612,18 @@ Flags:
               </div>
             
               <div class="Page" id="guides">
-                <h1>Guides</h1>
-                <h2 id="development_to_production_workflow">Development to Production Workflow</h2>
+                <h1 class="Heading"><a class="Anchor" aria-hidden="true" id="Guides__guides" href="#Guides__guides">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Guides</h1>
+                <h2 class="Heading"><a class="Anchor" aria-hidden="true" id="Guides__development_to_production_workflow" href="#Guides__development_to_production_workflow">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Development to Production Workflow</h2>
 
 <p>This section guides you through taking a small application from development, to production, complete with purchasing and mapping a custom domain.</p>
 
-<h3 id="deploying">Deploying</h3>
+<h3 class="Heading"><a class="Anchor" aria-hidden="true" id="Guides__deploying" href="#Guides__deploying">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Deploying</h3>
 
 <p>First create <code>app.js</code> in an empty directory with the following Node.js app. Note that it must listen on <strong>PORT</strong> which is passed by Up.</p>
 
@@ -1552,7 +1658,9 @@ http.createServer((req, res) =&gt; {
 Hello World
 </code></pre>
 
-<h3 id="purchasing_a_domain">Purchasing a Domain</h3>
+<h3 class="Heading"><a class="Anchor" aria-hidden="true" id="Guides__purchasing_a_domain" href="#Guides__purchasing_a_domain">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Purchasing a Domain</h3>
 
 <p>Domains can be mapped from existing services, or purchased directly from AWS via Route53. First check if the domain you’d like is available:</p>
 
@@ -1609,7 +1717,9 @@ Hello World
   up-example.com           renews Sep 19 19:40:50
 </code></pre>
 
-<h3 id="deploying_to_stages">Deploying to Stages</h3>
+<h3 class="Heading"><a class="Anchor" aria-hidden="true" id="Guides__deploying_to_stages" href="#Guides__deploying_to_stages">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Deploying to Stages</h3>
 
 <p>Before deploying to the staging and production stages, first tweak the application a little to include the <code>UP_STAGE</code> environment variable:</p>
 
@@ -1635,7 +1745,9 @@ $ up url production -o
 
 <p>You should see “Hello World from production” and “Hello World from development”.</p>
 
-<h3 id="mapping_custom_domains_to_stages">Mapping Custom Domains to Stages</h3>
+<h3 class="Heading"><a class="Anchor" aria-hidden="true" id="Guides__mapping_custom_domains_to_stages" href="#Guides__mapping_custom_domains_to_stages">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Mapping Custom Domains to Stages</h3>
 
 <p>Now that you have an application deployed, you probably want a fancy custom domain for it right? You can map these using the <code>stages</code> and <code>domain</code> properties.</p>
 
@@ -1704,7 +1816,9 @@ Add AWS::Route53::RecordSet
 
 <p>Once available <a href="https://up-example.com">https://up-example.com</a> will always point to production via <code>up deploy production</code>, and <a href="https://dev.up-example.com/">https://dev.up-example.com/</a> will point to the latest deployment via <code>up</code>.</p>
 
-<h3 id="stack_changes">Stack Changes</h3>
+<h3 class="Heading"><a class="Anchor" aria-hidden="true" id="Guides__stack_changes" href="#Guides__stack_changes">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Stack Changes</h3>
 
 <p>The “stack” is all of the resources associated with your app. You plan changes via <code>up stack plan</code> and perform them with <code>up stack apply</code>.</p>
 
@@ -1737,18 +1851,24 @@ Add AWS::Route53::RecordSet
 <pre><code>$ up stack apply
 </code></pre>
 
-<h3 id="deleting_the_app">Deleting the App</h3>
+<h3 class="Heading"><a class="Anchor" aria-hidden="true" id="Guides__deleting_the_app" href="#Guides__deleting_the_app">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Deleting the App</h3>
 
 <p>After you’re done messing around, you may want to remove all the resources and the app itself. To do so simply run:</p>
 
 <pre><code>$ up stack delete
 </code></pre>
 
-<h2 id="logging">Logging</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="Guides__logging" href="#Guides__logging">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Logging</h2>
 
 <p>This section describes how you can log from you application in a way that Up will recognize. In the future Up will support forwarding your logs to services such as Loggly, Papertrail or ELK.</p>
 
-<h3 id="plain_text">Plain Text</h3>
+<h3 class="Heading"><a class="Anchor" aria-hidden="true" id="Guides__plain_text" href="#Guides__plain_text">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Plain Text</h3>
 
 <p>The first option is plain-text logs to stdout or stderr. Currently writes to stderr are considered ERROR-level logs, and stdout becomes INFO.</p>
 
@@ -1780,7 +1900,9 @@ console.log(&#39;  email: %s&#39;, user.email)
 
 <p>This feature is especially useful for stack traces.</p>
 
-<h3 id="json">JSON</h3>
+<h3 class="Heading"><a class="Anchor" aria-hidden="true" id="Guides__json" href="#Guides__json">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>JSON</h3>
 
 <p>The second option is structured logging with JSON events, which is preferred as it allows you to query against specific fields and treat logs like events.</p>
 
@@ -1822,11 +1944,15 @@ console.log(&#39;  email: %s&#39;, user.email)
 }
 </code></pre>
 
-<h2 id="log_query_language">Log Query Language</h2>
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="Guides__log_query_language" href="#Guides__log_query_language">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Log Query Language</h2>
 
 <p>Up supports a comprehensive query language, allowing you to perform complex filters against structured data, supporting operators, equality, substring tests and so on. This section details the options available when querying.</p>
 
-<h3 id="and_operator">AND Operator</h3>
+<h3 class="Heading"><a class="Anchor" aria-hidden="true" id="Guides__and_operator" href="#Guides__and_operator">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>AND Operator</h3>
 
 <p>The <code>and</code> operator is implied, and entirely optional to specify, since this is the common case.</p>
 
@@ -1840,7 +1966,9 @@ console.log(&#39;  email: %s&#39;, user.email)
 <pre><code>production and error and ip = &#34;207.194.38.50&#34;
 </code></pre>
 
-<h3 id="or_operator">Or Operator</h3>
+<h3 class="Heading"><a class="Anchor" aria-hidden="true" id="Guides__or_operator" href="#Guides__or_operator">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Or Operator</h3>
 
 <p>There is of course also an <code>or</code> operator, for example showing warnings or errors.</p>
 
@@ -1852,7 +1980,9 @@ console.log(&#39;  email: %s&#39;, user.email)
 <pre><code>(production or staging) (warn or error) method = &#34;GET&#34;
 </code></pre>
 
-<h3 id="equality_operators">Equality Operators</h3>
+<h3 class="Heading"><a class="Anchor" aria-hidden="true" id="Guides__equality_operators" href="#Guides__equality_operators">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Equality Operators</h3>
 
 <p>The <code>=</code> and <code>!=</code> equality operators allow you to filter on the contents of a field.</p>
 
@@ -1866,14 +1996,18 @@ console.log(&#39;  email: %s&#39;, user.email)
 <pre><code>method != &#34;GET&#34;
 </code></pre>
 
-<h3 id="relational_operators">Relational Operators</h3>
+<h3 class="Heading"><a class="Anchor" aria-hidden="true" id="Guides__relational_operators" href="#Guides__relational_operators">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Relational Operators</h3>
 
 <p>The <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>, and <code>&lt;=</code> relational operators are useful for comparing numeric values, for example response status codes:</p>
 
 <pre><code>status &gt;= 200 status &lt; 300
 </code></pre>
 
-<h3 id="stages">Stages</h3>
+<h3 class="Heading"><a class="Anchor" aria-hidden="true" id="Guides__stages" href="#Guides__stages">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Stages</h3>
 
 <p>Currently all development, staging, and production logs are all stored in the same location, however you may filter to find exactly what you need.</p>
 
@@ -1892,7 +2026,9 @@ console.log(&#39;  email: %s&#39;, user.email)
 <pre><code>stage = &#34;production&#34; duration &gt;= 1s
 </code></pre>
 
-<h3 id="severity_levels">Severity Levels</h3>
+<h3 class="Heading"><a class="Anchor" aria-hidden="true" id="Guides__severity_levels" href="#Guides__severity_levels">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Severity Levels</h3>
 
 <p>Up provides request level logging with severity levels applied automatically, for example a 5xx response is an ERROR level, while 4xx is a WARN, and 3xx or 2xx are the INFO level.</p>
 
@@ -1906,14 +2042,18 @@ console.log(&#39;  email: %s&#39;, user.email)
 <pre><code>production error
 </code></pre>
 
-<h3 id="in_operator">In Operator</h3>
+<h3 class="Heading"><a class="Anchor" aria-hidden="true" id="Guides__in_operator" href="#Guides__in_operator">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>In Operator</h3>
 
 <p>The <code>in</code> operator checks for the presence of a field within the set provided. For example showing only POST, PUT and PATCH requests:</p>
 
 <pre><code>method in (&#34;POST&#34;, &#34;PUT&#34;, &#34;PATCH&#34;)
 </code></pre>
 
-<h3 id="not_operator">Not Operator</h3>
+<h3 class="Heading"><a class="Anchor" aria-hidden="true" id="Guides__not_operator" href="#Guides__not_operator">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Not Operator</h3>
 
 <p>The <code>not</code> operator is a low-precedence negation operator, for example excluding requests with the method POST, PUT, or PATCH:</p>
 
@@ -1930,7 +2070,9 @@ console.log(&#39;  email: %s&#39;, user.email)
 <pre><code>!(message = &#34;user login&#34; or message = &#34;user logout&#34;)
 </code></pre>
 
-<h3 id="units">Units</h3>
+<h3 class="Heading"><a class="Anchor" aria-hidden="true" id="Guides__units" href="#Guides__units">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Units</h3>
 
 <p>The log grammar supports units for bytes and durations, for example showing responses larger than 56kb:</p>
 
@@ -1957,7 +2099,9 @@ console.log(&#39;  email: %s&#39;, user.email)
 <li><code>s</code> seconds (<code>1.5s</code>, <code>5s</code>)</li>
 </ul>
 
-<h3 id="substring_matches">Substring Matches</h3>
+<h3 class="Heading"><a class="Anchor" aria-hidden="true" id="Guides__substring_matches" href="#Guides__substring_matches">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Substring Matches</h3>
 
 <p>When filtering on strings, such as the log message, you may use the <code>*</code> character for substring matches.</p>
 
@@ -1979,7 +2123,9 @@ console.log(&#39;  email: %s&#39;, user.email)
               </div>
             
               <div class="Page" id="faq">
-                <h1>FAQ</h1>
+                <h1 class="Heading"><a class="Anchor" aria-hidden="true" id="FAQ__faq" href="#FAQ__faq">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>FAQ</h1>
                 <p></p><details>
   <summary>Is this a hosted service?</summary>
   <p>There are currently no plans for a hosted version. Up lets you deploy applications to your own AWS account for isolation, security, and longevity, don’t worry about a startup going out of business.</p>
@@ -2041,7 +2187,9 @@ console.log(&#39;  email: %s&#39;, user.email)
               </div>
             
               <div class="Page" id="links">
-                <h1>Links</h1>
+                <h1 class="Heading"><a class="Anchor" aria-hidden="true" id="Links__links" href="#Links__links">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Links</h1>
                 <ul>
 <li>Follow the progress on <a href="https://github.com/apex/up">GitHub repository</a></li>
 <li>Follow <a href="https://twitter.com/tjholowaychuk">@tjholowaychuk</a> on Twitter for updates</li>
@@ -2059,5 +2207,6 @@ console.log(&#39;  email: %s&#39;, user.email)
           </div>
         </div>
     </div>
-  </body>
-</html>
+  
+
+</div></body></html>
