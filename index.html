@@ -920,7 +920,20 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
 </a>Stages &amp; Custom Domains</h2>
 
-<p>Up supports per-stage configuration, such as mapping of custom domains. Stage configuration is optional, this example maps all three to sub-domains:</p>
+<p>Up supports per-stage configuration, such as mapping of custom domains.</p>
+
+<p>By defining a stage and its <code>domain</code>, Up knows it will need to create a free SSL certificate for <code>gh-polls.com</code>, setup the DNS records, and map the domain to API Gateway.</p>
+
+<pre><code class="language-json">{
+  &#34;stages&#34;: {
+    &#34;production&#34;: {
+      &#34;domain&#34;: &#34;gh-polls.com&#34;
+    }
+  }
+}
+</code></pre>
+
+<p>Here’s another example mapping each stage to a domain, note that Up will create a wildcard certificate, so sub-domains are fine.</p>
 
 <pre><code class="language-json">{
   &#34;stages&#34;: {
@@ -937,12 +950,13 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 }
 </code></pre>
 
-<p>This example maps only the production stage:</p>
+<p>You may also provide an optional base path, for example to prefix your API with <code>/v1</code>. Note that currently your application will still receive “/v1” in its request path, for example Node’s <code>req.url</code> will be  “/v1/users” instead of “/users”.</p>
 
 <pre><code class="language-json">{
   &#34;stages&#34;: {
     &#34;production&#34;: {
-      &#34;domain&#34;: &#34;gh-polls.com&#34;
+      &#34;domain&#34;: &#34;api.gh-polls.com&#34;,
+      &#34;path&#34;: &#34;/v1&#34;
     }
   }
 }
@@ -2194,7 +2208,7 @@ console.log(&#39;  email: %s&#39;, user.email)
 <li>Follow the progress on <a href="https://github.com/apex/up">GitHub repository</a></li>
 <li>Follow <a href="https://twitter.com/tjholowaychuk">@tjholowaychuk</a> on Twitter for updates</li>
 <li><a href="https://github.com/apex/up-examples">Example applications</a> for Up</li>
-<li><a href="https://apex-dev.azurewebsites.net/">Slack</a> to chat with apex(1) and up(1) community members</li>
+<li><a href="https://apex-slackin.herokuapp.com/">Slack</a> to chat with apex(1) and up(1) community members</li>
 <li><a href="https://blog.apex.sh/">Blog</a> to follow release posts, tips and tricks</li>
 <li><a href="https://github.com/apex/up/wiki">Wiki</a> for article listings, database suggestions, and sample apps</li>
 </ul>
