@@ -535,15 +535,16 @@ server.listen
 
 <p>By default the current directory (<code>.</code>) is served, however you can change this using the <code>dir</code> setting. The following configuration restricts only serving of files in <code>./public/*</code>, any attempts to read files from outside of this root directory will fail.</p>
 
-<pre><code class="language-son">{
+<pre><code class="language-json">{
   &#34;name&#34;: &#34;app&#34;,
   &#34;type&#34;: &#34;static&#34;,
   &#34;static&#34;: {
     &#34;dir&#34;: &#34;public&#34;
   }
 }
-
 </code></pre>
+
+<p>Note that <code>static.dir</code> only tells Up which directory to serve – it does not exclude other files from the directory – see <a href="#configuration__ignoring_files">Ignoring Files</a>.</p>
 
 <h2 class="Heading"><a class="Anchor" aria-hidden="true" id="configuration__environment_variables" href="#configuration__environment_variables">
 	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
