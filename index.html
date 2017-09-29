@@ -2067,25 +2067,6 @@ console.log(&#39;  email: %s&#39;, user.email)
 <pre><code>method in (&#34;POST&#34;, &#34;PUT&#34;, &#34;PATCH&#34;)
 </code></pre>
 
-<h3 class="Heading"><a class="Anchor" aria-hidden="true" id="guides__not_operator" href="#guides__not_operator">
-	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
-</a>Not Operator</h3>
-
-<p>The <code>not</code> operator is a low-precedence negation operator, for example excluding requests with the method POST, PUT, or PATCH:</p>
-
-<pre><code>not method in (&#34;POST&#34;, &#34;PUT&#34;, &#34;PATCH&#34;)
-</code></pre>
-
-<p>Since it is the lowest precedence operator, the following will show messages that are not “user login” or “user logout”:</p>
-
-<pre><code>not message = &#34;user login&#34; or message = &#34;user logout&#34;
-</code></pre>
-
-<p>Effectively compiling to:</p>
-
-<pre><code>!(message = &#34;user login&#34; or message = &#34;user logout&#34;)
-</code></pre>
-
 <h3 class="Heading"><a class="Anchor" aria-hidden="true" id="guides__units" href="#guides__units">
 	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
 </a>Units</h3>
