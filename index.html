@@ -320,11 +320,11 @@ import os
 
 class myHandler(BaseHTTPRequestHandler):
   def do_GET(self):
-  self.send_response(200)
-  self.send_header(&#39;Content-type&#39;,&#39;text/html&#39;)
-  self.end_headers()
-  self.wfile.write(&#34;Hello World from Python\n&#34;)
-  return
+      self.send_response(200)
+      self.send_header(&#39;Content-type&#39;,&#39;text/html&#39;)
+      self.end_headers()
+      self.wfile.write(&#34;Hello World from Python\n&#34;)
+      return
 
 server = HTTPServer((&#39;&#39;, int(os.environ[&#39;PORT&#39;])), myHandler)
 server.serve_forever()
@@ -2169,6 +2169,11 @@ console.log(&#39;  email: %s&#39;, user.email)
   <p>This depends on the platform, and with Lambda being the initial platform provided the current answer is no, the server(s) are frozen when inactive and are otherwise “stateless”.</p><p></p>
 
 <p></p><p>Typically relying on background work in-process is an anti-pattern as it does not scale. Lambda functions combined with CloudWatch scheduled events for example are a good way to handle this kind of work, if you’re looking for a scalable alternative.</p>
+</details><p></p>
+
+<p></p><details>
+  <summary>What databases can I use?</summary>
+  <p>You’re not limited to database from any given platform, such as AWS, provided that the database host provides authentication you can use anything. See the <a href="https://github.com/apex/up/wiki#databases">Wiki</a> for a list of managed &amp; serverless database solutions.</p>
 </details><p></p>
 
 <p></p><details>
