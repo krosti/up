@@ -467,7 +467,6 @@ server.listen
 <ul>
 <li><code>role</code> – IAM role ARN, defaulting to the one Up creates for you</li>
 <li><code>memory</code> – Function memory in mb (Default <code>128</code>, Min <code>128</code>, Max <code>1536</code>)</li>
-<li><code>timeout</code> – Function timeout in seconds (Default <code>15</code>, Min <code>1</code>, Max <code>300</code>)</li>
 </ul>
 
 <p>For example:</p>
@@ -475,8 +474,7 @@ server.listen
 <pre><code class="language-json">{
   &#34;name&#34;: &#34;api&#34;,
   &#34;lambda&#34;: {
-    &#34;memory&#34;: 512,
-    &#34;timeout&#34;: 2
+    &#34;memory&#34;: 512
   }
 }
 </code></pre>
@@ -833,6 +831,7 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 </ul></li>
 <li><code>backoff</code> – Backoff configuration object described in “Crash Recovery”</li>
 <li><code>retry</code> – Retry idempotent requests upon 5xx or server crashes. (Default <code>true</code>)</li>
+<li><code>timeout</code> – Timeout in seconds per request (Default <code>15</code>, Max <code>25</code>)</li>
 <li><code>listen_timeout</code> – Timeout in seconds Up will wait for your app to boot and listen on <code>PORT</code> (Default <code>15</code>, Max <code>25</code>)</li>
 <li><code>shutdown_timeout</code> – Timeout in seconds Up will wait after sending a SIGINT to your server, before sending a SIGKILL (Default <code>15</code>)</li>
 </ul>
@@ -840,11 +839,14 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 <pre><code class="language-json">{
   &#34;proxy&#34;: {
     &#34;command&#34;: &#34;node app.js&#34;,
-    &#34;listen_timeout&#34;: 12,
+    &#34;timeout&#34;: 5,
+    &#34;listen_timeout&#34;: 20,
     &#34;shutdown_timeout&#34;: 5
   }
 }
 </code></pre>
+
+<p>Lambda’s function timeout is implied from the <code>.proxy.timeout</code> setting.</p>
 
 <h3 class="Heading"><a class="Anchor" aria-hidden="true" id="configuration__crash_recovery" href="#configuration__crash_recovery">
 	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
@@ -2173,7 +2175,7 @@ console.log(&#39;  email: %s&#39;, user.email)
 
 <p></p><details>
   <summary>What databases can I use?</summary>
-  <p>You’re not limited to database from any given platform, such as AWS, provided that the database host provides authentication you can use anything. See the <a href="https://github.com/apex/up/wiki#databases">Wiki</a> for a list of managed &amp; serverless database solutions.</p>
+  <p>You’re not limited to databases from any given platform, such as AWS Provided that the database host provides authentication, you can use anything. See the <a href="https://github.com/apex/up/wiki#databases">Wiki</a> for a list of managed &amp; serverless database solutions.</p>
 </details><p></p>
 
 <p></p><details>
