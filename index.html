@@ -481,7 +481,7 @@ server.listen
 
 <p>View the <a href="https://aws.amazon.com/lambda/pricing/">Lambda Pricing</a> page for more information regarding the <code>memory</code> setting.</p>
 
-<p>Lambda timeout is implied from the <a href="#configuration__reverse_proxy">Reverse Proxy</a> <code>timeout</code> setting.</p>
+<p>Lambda timeout is implied from the <a href="#configuration.reverse_proxy">Reverse Proxy</a> <code>timeout</code> setting.</p>
 
 <h2 class="Heading"><a class="Anchor" aria-hidden="true" id="configuration.hook_scripts" href="#configuration.hook_scripts">
 	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
@@ -544,7 +544,7 @@ server.listen
 }
 </code></pre>
 
-<p>Note that <code>static.dir</code> only tells Up which directory to serve – it does not exclude other files from the directory – see <a href="#configuration__ignoring_files">Ignoring Files</a>.</p>
+<p>Note that <code>static.dir</code> only tells Up which directory to serve – it does not exclude other files from the directory – see <a href="#configuration.ignoring_files">Ignoring Files</a>.</p>
 
 <h2 class="Heading"><a class="Anchor" aria-hidden="true" id="configuration.environment_variables" href="#configuration.environment_variables">
 	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
@@ -980,7 +980,7 @@ Date: Mon, 31 Jul 2017 20:49:35 GMT
 
 <p>If you’re familiar with AWS Lambda, “development” is the $LATEST version, while “staging” and “production” are aliases.</p>
 
-<p>You may <a href="#purchasing_a_domain">purchase domains</a> from the command-line, or map custom domains from other registrars. Up uses Route53 to purchase domains using your AWS account credit card. See <code>up help domains</code>.</p>
+<p>You may <a href="#guides.development_to_production_workflow.purchasing_a_domain">purchase domains</a> from the command-line, or map custom domains from other registrars. Up uses Route53 to purchase domains using your AWS account credit card. See <code>up help domains</code>.</p>
 
 <h2 class="Heading"><a class="Anchor" aria-hidden="true" id="configuration.ignoring_files" href="#configuration.ignoring_files">
 	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
