@@ -1568,7 +1568,7 @@ Subcommands:
 	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
 </a>Examples</h3>
 
-<p>Show status of the stack resources.</p>
+<p>Show status of the stack resources and nameservers.</p>
 
 <pre><code>$ up stack
 </code></pre>
@@ -1838,6 +1838,28 @@ Add AWS::Route53::RecordSet
 <p>After the changes have been applied, it can take roughly 10-40 minutes for CloudFront to distribute the configuration and SSL certificate globally, so until then our up-example.com domain won’t work.</p>
 
 <p>Once available <a href="https://up-example.com">https://up-example.com</a> will always point to production via <code>up deploy production</code>, and <a href="https://dev.up-example.com/">https://dev.up-example.com/</a> will point to the latest deployment via <code>up</code>.</p>
+
+<h3 class="Heading"><a class="Anchor" aria-hidden="true" id="guides.development_to_production_workflow.mapping_domains_from_external_registrars" href="#guides.development_to_production_workflow.mapping_domains_from_external_registrars">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Mapping Domains from External Registrars</h3>
+
+<p>If you purchased a domain via <code>up domains buy</code> then you can skip this step, however if you used an external registrar such as Godaddy you will need to delegate to AWS for DNS management.</p>
+
+<p>To do this you’ll need to sign in to your registrar’s site, and configure the nameservers. To figure out what values to use for the nameservers, run <code>up stack</code>, which outputs the NS records for the apex (top-level) domains of your application.</p>
+
+<pre><code>$ up stack
+
+status: Created
+
+development (isatty.com):
+
+• ns-1315.awsdns-36.org
+• ns-1911.awsdns-46.co.uk
+• ns-700.awsdns-23.net
+• ns-481.awsdns-60.com
+</code></pre>
+
+<p>Save those four values in your registrar’s interface, and you should be good to go! Note that altering DNS records can take some time to propagate.</p>
 
 <h3 class="Heading"><a class="Anchor" aria-hidden="true" id="guides.development_to_production_workflow.stack_changes" href="#guides.development_to_production_workflow.stack_changes">
 	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
