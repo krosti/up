@@ -1537,6 +1537,51 @@ Flags:
 <pre><code>$ up start --address :5000
 </code></pre>
 
+<h2 class="Heading"><a class="Anchor" aria-hidden="true" id="commands.domains" href="#commands.domains">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Domains</h2>
+
+<p>Manage domain names, and purchase them from AWS Route53 as the registrar.</p>
+
+<pre><code>Usage:
+
+  up domains &lt;command&gt; [&lt;args&gt; ...]
+
+Flags:
+
+  -h, --help           Output usage information.
+  -r, --region=REGION  Override the region.
+  -C, --chdir=&#34;.&#34;      Change working directory.
+  -v, --verbose        Enable verbose log output.
+      --version        Show application version.
+
+Subcommands:
+
+  domains list    List purchased domains.
+  domains check   Check availability of a domain.
+  domains buy     Purchase a domain.
+
+</code></pre>
+
+<h3 class="Heading"><a class="Anchor" aria-hidden="true" id="commands.domains.examples" href="#commands.domains.examples">
+	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+</a>Examples</h3>
+
+<p>List purchased domains.</p>
+
+<pre><code>$ up domains
+</code></pre>
+
+<p>Check availability of a domain.</p>
+
+<pre><code>$ up domains check example.com
+</code></pre>
+
+<p>Purchase a domain (with interactive form).</p>
+
+<pre><code>$ up domains buy
+</code></pre>
+
 <h2 class="Heading"><a class="Anchor" aria-hidden="true" id="commands.stack" href="#commands.stack">
 	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
 </a>Stack</h2>
